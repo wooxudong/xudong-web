@@ -1,6 +1,10 @@
+require('dotenv').config({
+  path: '.env',
+});
+
 module.exports = {
   siteMetadata: {
-    title: `xudong's personal website`,
+    title: `xudong's utopia`,
     description: `a website that shares information regarding wooxudong`,
     siteUrl: `https://www.wooxudong.com`,
     home: {
@@ -43,6 +47,25 @@ module.exports = {
         // The property ID; the tracking code won't be generated without it
         trackingId: 'UA-30027142-1',
         head: true,
+      },
+    },
+
+    //To connect to the prismic CMS
+    {
+      resolve: `gatsby-source-prismic-graphql`,
+      options: {
+        repositoryName: process.env.PRISMIC_REPOSITORY_NAME,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+        path: '/preview', // optional, default: /preview
+        previews: true, // optional, default: false
+        pages: [
+          {
+            type: 'Blogpost', // TypeName from prismic
+            match: '/blog/:uid', // pages will be generated under this pattern
+            previewPath: '/blog', // optional path for unpublished documents
+            component: require.resolve('./src/templates/blogTemplate.js'),
+          },
+        ],
       },
     },
     `gatsby-plugin-sass`,
