@@ -49,8 +49,6 @@ module.exports = {
         head: true,
       },
     },
-
-    //To connect to the prismic CMS
     {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
@@ -71,6 +69,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify-cms`,
-    'gatsby-plugin-dark-mode',
+    `gatsby-plugin-dark-mode`,
+    `gatsby-plugin-material-ui`,
   ],
 };

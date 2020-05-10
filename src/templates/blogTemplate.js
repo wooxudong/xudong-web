@@ -6,9 +6,7 @@ import get from 'loadsh/get';
 import { RichText } from 'prismic-reactjs';
 
 export default ({ data }) => {
-  console.log(data);
   const pageData = get(data, 'prismic.allBlogposts.edges.0.node', []);
-  console.log(RichText.render());
   return (
     <Layout>
       <Helmet>

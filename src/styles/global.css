@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600');
+@import url('../../static/assets/css/font-awesome.min.css');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f1f1f1;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
+@media screen and (max-width: 600px) {
+  html,
+  body {
+    min-width: 320px;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16pt;
+}
+
+@media screen and (max-width: 1920px) {
+  html {
+    font-size: 12pt;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  html {
+    font-size: 11pt;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 10pt;
+  }
+}
