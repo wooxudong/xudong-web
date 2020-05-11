@@ -1,7 +1,7 @@
 import React from "react";
 import ContentPanel from "./shared/ContentPanel";
 import Image from "./shared/Image";
-import pic from "../../../static/background-1.jpg";
+import pic from "../../../static/image/background-1.jpg";
 import Paragraph from "./shared/Paragraph";
 
 const work = props => {

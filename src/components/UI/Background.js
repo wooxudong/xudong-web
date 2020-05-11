@@ -1,9 +1,7 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import overlayPic from "../../../static/overlay.png";
-import bgPic from "../../../static/background.jpg";
+import makeStyles from "@material-ui/styles/makeStyles/makeStyles";
 
-const styles = {
+const useStyles = makeStyles({
   background: {
     transform: "scale(1)",
     position: "fixed",
@@ -12,8 +10,8 @@ const styles = {
     width: "100%",
     height: "100vh",
     zIndex: 1,
-    animationName: "background-fade-in",
-    animationDuration: "1.5s",
+    animationName: "$background-fade-in",
+    animationDuration: "1s",
     transition: "all 1s ease-in-out ",
     "&:before, &:after": {
       content: '""',
@@ -29,8 +27,7 @@ const styles = {
         to top,
         rgba(19, 21, 25, 0.5),
         rgba(19, 21, 25, 0.5)
-      ),
-      url('${overlayPic}')`,
+      )`,
       backgroundSize: "auto, 256px 256px",
       backgroundPosition: "center, center",
       backgroundRepeat: "no-repeat, repeat",
@@ -39,7 +36,7 @@ const styles = {
     "&:after": {
       animationFillMode: "forwards",
       transform: "scale(1.125)",
-      backgroundImage: `url(${bgPic})`,
+      backgroundImage: props => `url(${props.image})`,
       backgroundPosition: "center",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
@@ -55,14 +52,12 @@ const styles = {
       filter: "none",
       opacity: 1
     }
-  },
-  fadeOut: {
-    filter: "blur(0.8rem)"
   }
-};
+});
 
-const background = ({ classes }) => {
+const Background = props => {
+  const classes = useStyles(props);
   return <div className={`${classes.background}`} />;
 };
 
-export default withStyles(styles)(background);
+export default Background;

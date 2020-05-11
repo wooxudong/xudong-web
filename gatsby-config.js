@@ -10,8 +10,7 @@ module.exports = {
     home: {
       title: `Hi! I'm Delog`,
       description: `I have been specifically designed to become a digital home for designers and developers, help them build amazing professional looking websites with ease. You don't have to worry about nitty gritty of web hosting services to run a blog and yet take full advantage of CMS to manage content :)`
-    },
-    w3l_dom_key: `5e609f7a2d23fCF_Domain_verify`
+    }
   },
   plugins: [
     {
@@ -19,6 +18,13 @@ module.exports = {
       options: {
         name: `markdown-pages`,
         path: `${__dirname}/_data`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `img`,
+        path: `${__dirname}/static/image`
       }
     },
     {
@@ -71,6 +77,7 @@ module.exports = {
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-dark-mode`,
     `gatsby-plugin-material-ui`,
-    "gatsby-plugin-page-transitions"
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`
   ]
 };
