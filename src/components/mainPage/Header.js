@@ -206,8 +206,7 @@ const styles = {
   },
 };
 
-const header = (props) => {
-  const { classes } = props;
+const header = ({ classes }) => {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
@@ -217,10 +216,10 @@ const header = (props) => {
         <div className={classes.inner}>
           <h1>Wú Xùdōng</h1>
           <Paragraph>
-            Developer, Cinephile, Tsundoku. <br />
-            Starting to love tech but I love films more. <br />
+            Developer, Cinephile. <br />
+            Learn techs occasionally, watch films always. <br />
             Douban:
-            <a href="https://www.douban.com/people/FromInsideOut/">@doniver</a>.
+            <a href="https://www.douban.com/people/FromInsideOut/">@mirai</a>.
           </Paragraph>
         </div>
       </div>

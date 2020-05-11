@@ -62,7 +62,7 @@ const styles = {
 };
 
 const background = ({ classes }) => {
-  return <div className={`${classes.background} ${classes.fadeOut}`} />;
+  return <div className={`${classes.background}`} />;
 };
 
 export default withStyles(styles)(background);

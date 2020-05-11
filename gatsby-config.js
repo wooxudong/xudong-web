@@ -71,5 +71,6 @@ module.exports = {
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-dark-mode`,
     `gatsby-plugin-material-ui`,
+    'gatsby-plugin-page-transitions',
   ],
 };
