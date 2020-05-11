@@ -1,12 +1,12 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
-import Layout from '../components/layout';
-import get from 'loadsh/get';
-import { RichText } from 'prismic-reactjs';
+import React from "react";
+import Helmet from "react-helmet";
+import { graphql } from "gatsby";
+import Layout from "../components/layout";
+import get from "loadsh/get";
+import { RichText } from "prismic-reactjs";
 
 export default ({ data }) => {
-  const pageData = get(data, 'prismic.allBlogposts.edges.0.node', []);
+  const pageData = get(data, "prismic.allBlogposts.edges.0.node", []);
   return (
     <Layout>
       <Helmet>

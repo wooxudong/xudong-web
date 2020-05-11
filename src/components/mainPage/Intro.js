@@ -1,9 +1,9 @@
-import React from 'react';
-import ContentPanel from './shared/ContentPanel';
-import { Link } from 'gatsby';
-import Paragraph from './shared/Paragraph';
+import React from "react";
+import ContentPanel from "./shared/ContentPanel";
+import { Link } from "gatsby";
+import Paragraph from "./shared/Paragraph";
 
-const intro = (props) => {
+const intro = props => {
   return (
     <ContentPanel id="intro" title="Intro" {...props}>
       <Paragraph>

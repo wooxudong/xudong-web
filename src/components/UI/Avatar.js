@@ -1,28 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
-import pic from '../../../static/avatar.jpg';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { withStyles } from "@material-ui/core/styles";
+import Avatar from "@material-ui/core/Avatar";
+import pic from "../../../static/avatar.jpg";
 
-const styles = (theme) => ({
+const styles = theme => ({
   avatar: {
-    margin: 1,
+    margin: 1
   },
   bigAvatar: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       width: 60,
-      height: 60,
+      height: 60
     },
-    [theme.breakpoints.between('sm', 'md')]: {
+    [theme.breakpoints.between("sm", "md")]: {
       width: 76,
-      height: 76,
+      height: 76
     },
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up("md")]: {
       width: 84,
-      height: 84,
-    },
-  },
+      height: 84
+    }
+  }
 });
 
 function ImageAvatars(props) {
@@ -39,7 +39,7 @@ function ImageAvatars(props) {
 }
 
 ImageAvatars.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(ImageAvatars);

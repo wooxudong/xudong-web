@@ -1,6 +1,6 @@
-import React from 'react';
-import ContentPanel from './shared/ContentPanel';
-import Form from './shared/form/Form';
+import React from "react";
+import ContentPanel from "./shared/ContentPanel";
+import Form from "./shared/form/Form";
 
 const contact = props => {
   return (
