@@ -88,7 +88,7 @@ const styles = {
     }
   },
   inner: {
-    animationName: '$inner-fade-in',
+    animationName: "$inner-fade-in",
     animationDuration: "1s",
     transition:
       "max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out",
