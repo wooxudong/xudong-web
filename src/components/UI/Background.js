@@ -1,28 +1,32 @@
 import React from "react";
-import makeStyles from "@material-ui/styles/makeStyles/makeStyles";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
+import withStyles from "@material-ui/core/styles/withStyles";
 
-const useStyles = makeStyles({
-  background: {
-    transform: "scale(1)",
+const styles = {
+  image: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    width: "100%",
+    height: "100vh",
+    zIndex: 1
+  },
+  overlay: {
     position: "fixed",
     top: 0,
     left: 0,
     width: "100%",
     height: "100vh",
-    zIndex: 1,
-    animationName: "$background-fade-in",
-    animationDuration: "1s",
-    transition: "all 1s ease-in-out ",
-    "&:before, &:after": {
+    "&:before": {
       content: '""',
       display: "block",
-      position: "absolute",
       top: 0,
       left: 0,
       width: "100%",
-      height: "100%"
-    },
-    "&:before": {
+      height: "100%",
+      zIndex: 2,
+      position: "absolute",
       backgroundImage: `linear-gradient(
         to top,
         rgba(19, 21, 25, 0.5),
@@ -30,34 +34,29 @@ const useStyles = makeStyles({
       )`,
       backgroundSize: "auto, 256px 256px",
       backgroundPosition: "center, center",
-      backgroundRepeat: "no-repeat, repeat",
-      zIndex: 2
-    },
-    "&:after": {
-      animationFillMode: "forwards",
-      transform: "scale(1.125)",
-      backgroundImage: props => `url(${props.image})`,
-      backgroundPosition: "center",
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      zIndex: 1
-    }
-  },
-  "@keyframes background-fade-in": {
-    "0%": {
-      filter: "blur(0.5rem)",
-      opacity: 0.2
-    },
-    "100%": {
-      filter: "none",
-      opacity: 1
+      backgroundRepeat: "no-repeat, repeat"
     }
   }
-});
-
-const Background = props => {
-  const classes = useStyles(props);
-  return <div className={`${classes.background}`} />;
 };
 
-export default Background;
+const Background = ({ classes }) => {
+  const data = useStaticQuery(graphql`
+    query BackgroundImageQuery {
+      file(relativePath: { eq: "background.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1024) {
+            ...GatsbyImageSharpFluid_tracedSVG
+          }
+        }
+      }
+    }
+  `);
+
+  return (
+    <div className={classes.overlay}>
+      <Img fluid={data.file.childImageSharp.fluid} className={classes.image} />
+    </div>
+  );
+};
+
+export default withStyles(styles)(Background);

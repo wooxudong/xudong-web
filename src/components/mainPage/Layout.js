@@ -30,14 +30,14 @@ const styles = {
   }
 };
 
-const Layout = ({ classes, children, backgroundImage }) => {
+const Layout = ({ classes, children }) => {
   return (
     <>
       <div className={classes.app}>
         {children}
         <Footer />
       </div>
-      <Background image={backgroundImage} />
+      <Background />
     </>
   );
 };
