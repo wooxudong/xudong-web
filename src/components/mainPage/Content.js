@@ -1,6 +1,5 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import Layout from "./Layout";
 
 const styles = {
   main: {
@@ -18,9 +17,7 @@ const styles = {
 
 const Content = ({ classes, children }) => {
   return (
-    <Layout>
-      <div className={classes.main}>{children}</div>;
-    </Layout>
+      <div className={classes.main}>{children}</div>
   );
 };
 

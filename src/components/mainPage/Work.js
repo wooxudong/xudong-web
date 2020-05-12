@@ -1,13 +1,10 @@
 import React from "react";
 import ContentPanel from "./shared/ContentPanel";
-import Image from "./shared/Image";
-import pic from "../../../static/image/background-1.jpg";
 import Paragraph from "./shared/Paragraph";
 
 const work = props => {
   return (
     <ContentPanel id="work" title="Work" {...props}>
-      <Image pic={pic} />
       <Paragraph>
         Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at
         eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi,
