@@ -1,5 +1,6 @@
 import React from "react";
 import makeStyles from "@material-ui/styles/makeStyles/makeStyles";
+import {graphql, useStaticQuery} from 'gatsby';
 
 const useStyles = makeStyles({
   background: {
@@ -10,9 +11,6 @@ const useStyles = makeStyles({
     width: "100%",
     height: "100vh",
     zIndex: 1,
-    animationName: "$background-fade-in",
-    animationDuration: "1s",
-    transition: "all 1s ease-in-out ",
     "&:before, &:after": {
       content: '""',
       display: "block",
@@ -34,29 +32,29 @@ const useStyles = makeStyles({
       zIndex: 2
     },
     "&:after": {
-      animationFillMode: "forwards",
-      transform: "scale(1.125)",
-      backgroundImage: props => `url(${props.image})`,
+      backgroundImage: props => `url(${props.src})`,
       backgroundPosition: "center",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       zIndex: 1
     }
   },
-  "@keyframes background-fade-in": {
-    "0%": {
-      filter: "blur(0.5rem)",
-      opacity: 0.2
-    },
-    "100%": {
-      filter: "none",
-      opacity: 1
-    }
-  }
 });
 
-const Background = props => {
-  const classes = useStyles(props);
+const Background = () => {
+  const data = useStaticQuery(graphql`
+    query BackgroundImageQuery {
+      backgroundImage: file(relativePath: { eq: "background.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1024) {
+            src
+          }
+        }
+      }
+    }`);
+
+  const classes = useStyles(data.backgroundImage.childImageSharp.fluid);
+
   return <div className={`${classes.background}`} />;
 };
 
