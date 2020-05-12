@@ -1,9 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
-import pic from "../../../static/image/avatar.jpg";
+import { graphql, useStaticQuery } from "gatsby";
 
 const styles = theme => ({
   avatar: {
@@ -25,21 +23,27 @@ const styles = theme => ({
   }
 });
 
-function ImageAvatars(props) {
-  const { classes } = props;
+function ImageAvatars({ classes }) {
+  const data = useStaticQuery(graphql`
+    query AvatarImageQuery {
+      file(relativePath: { eq: "avatar.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 84, quality: 100) {
+            src
+          }
+        }
+      }
+    }
+  `);
   return (
     <div className={classes.row}>
       <Avatar
         alt="Wu Xudong"
-        src={pic}
-        className={classNames(classes.avatar, classes.bigAvatar)}
+        src={data.file.childImageSharp.fluid.src}
+        className={`${classes.avatar} ${classes.bigAvatar}`}
       />
     </div>
   );
 }
-
-ImageAvatars.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default withStyles(styles)(ImageAvatars);

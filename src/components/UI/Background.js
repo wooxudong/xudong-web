@@ -1,19 +1,19 @@
 import React from "react";
-import {graphql, useStaticQuery} from 'gatsby';
-import Img from 'gatsby-image';
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = {
-  image:{
-    position: 'absolute',
+  image: {
+    position: "absolute",
     top: 0,
     bottom: 0,
     width: "100%",
     height: "100vh",
-    zIndex: 1,
+    zIndex: 1
   },
-  overlay:{
-    position: 'fixed',
+  overlay: {
+    position: "fixed",
     top: 0,
     left: 0,
     width: "100%",
@@ -32,29 +32,31 @@ const styles = {
         rgba(19, 21, 25, 0.5),
         rgba(19, 21, 25, 0.5)
       )`,
-    backgroundSize: "auto, 256px 256px",
-    backgroundPosition: "center, center",
-    backgroundRepeat: "no-repeat, repeat",
-    },
+      backgroundSize: "auto, 256px 256px",
+      backgroundPosition: "center, center",
+      backgroundRepeat: "no-repeat, repeat"
+    }
   }
 };
 
-const Background = ({classes}) => {
+const Background = ({ classes }) => {
   const data = useStaticQuery(graphql`
     query BackgroundImageQuery {
-      backgroundImage: file(relativePath: { eq: "background.jpg" }) {
+      file(relativePath: { eq: "background.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1024) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }
-    }`);
+    }
+  `);
 
-  return(
+  return (
     <div className={classes.overlay}>
-      <Img fluid={data.backgroundImage.childImageSharp.fluid} className={classes.image}/>
-    </div>);
+      <Img fluid={data.file.childImageSharp.fluid} className={classes.image} />
+    </div>
+  );
 };
 
 export default withStyles(styles)(Background);

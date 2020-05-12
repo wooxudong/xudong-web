@@ -36,8 +36,7 @@
   },
   "homepage": "https://www.wooxudong.com",
   "keywords": [
-    "gatsby",
-    "netlify cms"
+    "gatsby"
   ],
   "repository": {
     "type": "git",
