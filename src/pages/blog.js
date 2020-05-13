@@ -1,11 +1,11 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
-import PostLink from "../components/post-link";
-import HeroHeader from "../components/heroHeader";
+import Layout from "../components/blog/Layout";
+import PostLink from "../components/blog/PostLink";
+import HeroHeader from "../components/blog/HeroHeader";
 
-const IndexPage = ({
+const BlogPage = ({
   data: {
     site,
     allMarkdownRemark: { edges }
@@ -28,7 +28,7 @@ const IndexPage = ({
   );
 };
 
-export default IndexPage;
+export default BlogPage;
 export const pageQuery = graphql`
   query indexPageQuery {
     site {
