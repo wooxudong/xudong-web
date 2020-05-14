@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
+import Layout from "../components/blog/Layout";
 import get from "loadsh/get";
 import { RichText } from "prismic-reactjs";
 
