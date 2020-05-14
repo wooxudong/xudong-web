@@ -25,7 +25,7 @@ const styles = {
   },
   header:{
     display: 'flex',
-    justifyContent: 'spaceBetween',
+    justifyContent: 'space-between',
     padding: '1.5px 0',
     marginBottom: '2rem',
     alignItems: 'center',
