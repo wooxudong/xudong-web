@@ -3,7 +3,7 @@ import Footer from "../UI/Footer";
 import Background from "../UI/Background";
 import { withStyles } from "@material-ui/core/styles";
 import SEO from "../SEO";
-import {useStaticQuery} from "gatsby";
+import { graphql,  useStaticQuery } from "gatsby";
 
 const styles = {
   app: {
@@ -41,11 +41,15 @@ const Layout = ({ classes, children }) => {
           description
         }
       }
-    }`);
+    }
+  `);
 
   return (
     <>
-      <SEO title={data.site.siteMetadata.title} description={data.site.siteMetadata.description}/>
+      <SEO
+        title={data.site.siteMetadata.title}
+        description={data.site.siteMetadata.description}
+      />
       <div className={classes.app}>
         {children}
         <Footer />

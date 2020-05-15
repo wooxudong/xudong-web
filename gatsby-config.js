@@ -66,7 +66,8 @@ module.exports = {
             match: "/blog/:uid", // pages will be generated under this pattern
             component: require.resolve("./src/templates/blogTemplate.js")
           }
-        ]
+        ],
+        sharpKeys: [/image|photo|picture/, 'thumbnail'],
       }
     },
     `gatsby-plugin-sass`,
