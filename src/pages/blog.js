@@ -1,22 +1,22 @@
 import React from "react";
-import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Layout from "../components/blog/Layout";
 import PostLink from "../components/blog/PostLink";
 import HeroHeader from "../components/blog/HeroHeader";
 import withStyles from "@material-ui/styles/withStyles";
+import SEO from "../components/SEO";
 
 const styles = {
-  grids:{
+  grids: {
     display: "grid",
-    gridTemplateColumns: '1fr',
-    gridGap: '2rem',
-    marginTop: '2rem',
-    '@media screen and (min-width: 768px)':{
-      gridTemplateColumns: '1fr 1fr',
+    gridTemplateColumns: "1fr",
+    gridGap: "2rem",
+    marginTop: "2rem",
+    "@media screen and (min-width: 768px)": {
+      gridTemplateColumns: "1fr 1fr"
     },
-    '@media only screen and (min-width: 1024px)':{
-      gridTemplateColumns: '1fr 1fr 1fr',
+    "@media only screen and (min-width: 1024px)": {
+      gridTemplateColumns: "1fr 1fr 1fr"
     }
   }
 };
@@ -25,7 +25,8 @@ const BlogPage = ({
   data: {
     site,
     allMarkdownRemark: { edges }
-  }, classes
+  },
+  classes
 }) => {
   const Posts = edges
     .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
@@ -33,10 +34,10 @@ const BlogPage = ({
 
   return (
     <Layout>
-      <Helmet>
-        <title>{site.siteMetadata.title}</title>
-        <meta name="description" content={site.siteMetadata.description} />
-      </Helmet>
+      <SEO
+        title={site.siteMetadata.title}
+        description={site.siteMetadata.description}
+      />
       <HeroHeader />
       <h2>Blog Posts &darr;</h2>
       <div className={classes.grids}>{Posts}</div>

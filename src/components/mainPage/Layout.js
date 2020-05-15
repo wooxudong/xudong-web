@@ -2,6 +2,8 @@ import React from "react";
 import Footer from "../UI/Footer";
 import Background from "../UI/Background";
 import { withStyles } from "@material-ui/core/styles";
+import SEO from "../SEO";
+import {useStaticQuery} from "gatsby";
 
 const styles = {
   app: {
@@ -31,8 +33,19 @@ const styles = {
 };
 
 const Layout = ({ classes, children }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+        }
+      }
+    }`);
+
   return (
     <>
+      <SEO title={data.site.siteMetadata.title} description={data.site.siteMetadata.description}/>
       <div className={classes.app}>
         {children}
         <Footer />
