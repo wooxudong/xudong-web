@@ -1,30 +1,28 @@
-import React from "react";
-import { Link } from "gatsby";
-import withStyles from "@material-ui/styles/withStyles";
-import { primary } from "./styles/colors";
-
-// --card-bg: #fff;
-// --card-bdr: #eee;
-// --card-shadow: #d5d5d5;
+import React from 'react';
+import { Link } from 'gatsby';
+import withStyles from '@material-ui/styles/withStyles';
+import { primary } from './styles/colors';
+import Img from 'gatsby-image';
+import { blog } from '../../contants/routes';
 
 const styles = {
   card: {
-    display: "grid",
-    backgroundColor: "#fff",
-    borderRadius: "9px",
-    border: "1px solid #eee",
-    boxShadow: "0 0 30px #d5d5d5",
-    overflow: "hidden",
-    lineHeight: "1.5",
-    "&:hover": {
-      color: primary
+    display: 'grid',
+    backgroundColor: '#fff',
+    borderRadius: '9px',
+    border: '1px solid #eee',
+    boxShadow: '0 0 30px #d5d5d5',
+    overflow: 'hidden',
+    lineHeight: '1.5',
+    '&:hover': {
+      color: primary,
     },
-    '& img':{
+    '& img': {
       display: 'block',
-    }
+    },
   },
   header: {
-    padding: "1.5rem"
+    padding: '1.5rem',
   },
   postTitle: {
     fontSize: '1.2rem',
@@ -34,33 +32,30 @@ const styles = {
     fontWeight: 100,
     marginBottom: 0,
     fontSize: '0.8rem',
-    color: 'rgba(255,255,255,0.66)',
   },
-  postLink:{
-    color: 'rgba(255,255,255,0.88)',
+  postLink: {
     textDecoration: 'none',
-  }
-
+  },
 };
 
-const PostLink = ({ post, classes }) => (
-  <article className={classes.card}>
-    <Link to={post.frontmatter.path}>
-      {!!post.frontmatter.thumbnail && (
-        <img
-          src={post.frontmatter.thumbnail}
-          alt={post.frontmatter.title + "- Featured Shot"}
-        />
-      )}
-    </Link>
-    <header className={classes.header}>
-      <h2 className="post-title">
-        <Link to={post.frontmatter.path} className="post-link">
-          {post.frontmatter.title}
-        </Link>
-      </h2>
-      <div className="post-meta">{post.frontmatter.date}</div>
-    </header>
-  </article>
-);
+const PostLink = ({ post, classes }) => {
+  const postPath = `${blog}/${post._meta.uid}`;
+  return (
+    <article className={classes.card}>
+      <Link to={postPath}>
+        {!!post.thumbnail && (
+          <Img fluid={post.thumbnailSharp.childImageSharp.fluid} />
+        )}
+      </Link>
+      <header className={classes.header}>
+        <h2 className={classes.postTitle}>
+          <Link to={postPath} className={classes.postLink}>
+            {post.title}
+          </Link>
+        </h2>
+        <div className={classes.postMeta}>{post.publish_date}</div>
+      </header>
+    </article>
+  );
+};
 export default withStyles(styles)(PostLink);
