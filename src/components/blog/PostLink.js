@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import withStyles from '@material-ui/styles/withStyles';
-import { primary } from './styles/colors';
+import { mainGreen } from './styles/colors';
 import Img from 'gatsby-image';
 import { blog } from '../../contants/routes';
 
@@ -15,7 +15,7 @@ const styles = {
     overflow: 'hidden',
     lineHeight: '1.5',
     '&:hover': {
-      color: primary,
+      color: mainGreen,
     },
     '& img': {
       display: 'block',
@@ -34,6 +34,7 @@ const styles = {
     fontSize: '0.8rem',
   },
   postLink: {
+    color: 'inherit',
     textDecoration: 'none',
   },
 };

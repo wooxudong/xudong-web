@@ -1,1 +1,2 @@
-export const primary = '#381696';
+export const mainGreen = '#00918e';
+export const white = '#fff';

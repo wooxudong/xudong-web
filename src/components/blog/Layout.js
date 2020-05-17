@@ -3,6 +3,8 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 import Navigation from './Navigation';
 import 'prismjs/themes/prism-okaidia.css';
 import withStyles from '@material-ui/styles/withStyles';
+import { blog } from '../../contants/routes';
+import { mainGreen } from './styles/colors';
 
 const styles = {
   container: {
@@ -19,7 +21,7 @@ const styles = {
       top: 0,
       left: 0,
       width: '100%',
-      borderTop: '0.8rem solid #381696',
+      borderTop: `0.8rem solid ${mainGreen}`,
     },
   },
   header: {
@@ -30,10 +32,10 @@ const styles = {
     alignItems: 'center',
   },
   title: {
-    color: '#381696',
     fontWeight: 900,
     textTransform: 'uppercase',
     '& a': {
+      color: mainGreen,
       textDecoration: 'none',
     },
   },
@@ -60,7 +62,7 @@ const Layout = ({ classes, children }) => {
     <div className={classes.container}>
       <header className={classes.header}>
         <div className={classes.title}>
-          <Link to="/">{data.site.siteMetadata.title}</Link>
+          <Link to={blog}>{data.site.siteMetadata.title}</Link>
         </div>
         <Navigation />
       </header>
