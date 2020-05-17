@@ -1,12 +1,11 @@
-import React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
-import Navigation from "./Navigation";
-import "prismjs/themes/prism-okaidia.css";
-import withStyles from "@material-ui/styles/withStyles";
-
+import React from 'react';
+import { Link, useStaticQuery, graphql } from 'gatsby';
+import Navigation from './Navigation';
+import 'prismjs/themes/prism-okaidia.css';
+import withStyles from '@material-ui/styles/withStyles';
 
 const styles = {
-  container:{
+  container: {
     padding: '2rem',
     maxWidth: '70rem',
     margin: '0 auto',
@@ -15,36 +14,35 @@ const styles = {
     },
     '&:before': {
       display: 'block',
-      content:'""',
+      content: '""',
       position: 'absolute',
       top: 0,
-      left:0,
-      width:'100%',
-      borderTop: '0.8rem solid #381696'
-    }
+      left: 0,
+      width: '100%',
+      borderTop: '0.8rem solid #381696',
+    },
   },
-  header:{
+  header: {
     display: 'flex',
     justifyContent: 'space-between',
     padding: '1.5px 0',
     marginBottom: '2rem',
     alignItems: 'center',
   },
-  title:{
+  title: {
     color: '#381696',
     fontWeight: 900,
     textTransform: 'uppercase',
     '& a': {
-      textDecoration:'none',
-    }
+      textDecoration: 'none',
+    },
   },
-  footer:{
+  footer: {
     textAlign: 'center',
     margin: '5.5rem 0 1rem',
     color: '#666',
-  }
+  },
 };
-
 
 const Layout = ({ classes, children }) => {
   const data = useStaticQuery(
@@ -68,9 +66,7 @@ const Layout = ({ classes, children }) => {
       </header>
       {children}
       <footer className={classes.footer}>
-        <p>
-          &copy; 2020 Wu Xudong. All Rights Reserved.
-        </p>
+        <p>&copy; {new Date().getFullYear()} Wu Xudong. All Rights Reserved.</p>
       </footer>
     </div>
   );
