@@ -1,36 +1,30 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/blog/Layout";
-import PostLink from "../components/blog/PostLink";
-import HeroHeader from "../components/blog/HeroHeader";
-import withStyles from "@material-ui/styles/withStyles";
-import SEO from "../components/SEO";
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/blog/Layout';
+import PostLink from '../components/blog/PostLink';
+import HeroHeader from '../components/blog/HeroHeader';
+import withStyles from '@material-ui/styles/withStyles';
+import SEO from '../components/SEO';
 
 const styles = {
   grids: {
-    display: "grid",
-    gridTemplateColumns: "1fr",
-    gridGap: "2rem",
-    marginTop: "2rem",
-    "@media screen and (min-width: 768px)": {
-      gridTemplateColumns: "1fr 1fr"
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gridGap: '2rem',
+    marginTop: '2rem',
+    '@media screen and (min-width: 768px)': {
+      gridTemplateColumns: '1fr 1fr',
     },
-    "@media only screen and (min-width: 1024px)": {
-      gridTemplateColumns: "1fr 1fr 1fr"
-    }
-  }
+    '@media only screen and (min-width: 1024px)': {
+      gridTemplateColumns: '1fr 1fr 1fr',
+    },
+  },
 };
 
-const BlogPage = ({
-  data: {
-    site,
-    allMarkdownRemark: { edges }
-  },
-  classes
-}) => {
-  const Posts = edges
-    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map(edge => <PostLink key={edge.node.id} post={edge.node} />);
+const BlogPage = ({ data: { site, prismic }, classes }) => {
+  const Posts = prismic.allBlogposts.edges.map((edge) => (
+    <PostLink key={edge.node._meta.uid} post={edge.node} />
+  ));
 
   return (
     <Layout>
@@ -54,16 +48,26 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 250)
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            path
+    prismic {
+      allBlogposts(sortBy: publish_date_DESC) {
+        edges {
+          node {
             title
+            author
+            tag
             thumbnail
+            thumbnailSharp {
+              childImageSharp {
+                fluid(maxWidth: 500) {
+                  ...GatsbyImageSharpFluid_noBase64
+                }
+              }
+            }
+            abstract
+            publish_date
+            _meta {
+              uid
+            }
           }
         }
       }

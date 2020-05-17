@@ -1,68 +1,68 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/blog/Layout";
-import get from "loadsh/get";
-import { RichText } from "prismic-reactjs";
-import SEO from "../components/SEO";
-import withStyles from "@material-ui/styles/withStyles";
-import Img from "gatsby-image";
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/blog/Layout';
+import get from 'loadsh/get';
+import { RichText } from 'prismic-reactjs';
+import SEO from '../components/SEO';
+import withStyles from '@material-ui/styles/withStyles';
+import Img from 'gatsby-image';
 
 const styles = {
   article: {
-    background: "#fff",
-    lineHeight: "1.5"
+    background: '#fff',
+    lineHeight: '1.5',
   },
   content: {
-    maxWidth: "768px",
-    margin: "0 auto",
-    "&:last-child": {
-      marginBottom: 0
-    }
+    maxWidth: '768px',
+    margin: '0 auto',
+    '&:last-child': {
+      marginBottom: 0,
+    },
   },
   title: {
-    textAlign: "center",
-    margin: "0 0 0.5rem",
+    textAlign: 'center',
+    margin: '0 0 0.5rem',
     lineHeight: 1.3,
-    fontSize: "2rem",
-    position: "relative",
-    zIndex: 3
+    fontSize: '2rem',
+    position: 'relative',
+    zIndex: 3,
   },
   meta: {
-    marginBottom: "2rem",
-    textAlign: "center",
-    position: "relative",
-    zIndex: 3
+    marginBottom: '2rem',
+    textAlign: 'center',
+    position: 'relative',
+    zIndex: 3,
   },
   image: {
-    position: "absolute !important",
-    width: "100%",
-    height: "100%",
-    "&:before": {
-      position: "absolute",
+    position: 'absolute !important',
+    width: '100%',
+    height: '100%',
+    '&:before': {
+      position: 'absolute',
       content: '""',
-      background: "rgba(0,0,0,0.4)",
+      background: 'rgba(0,0,0,0.4)',
       top: 0,
       left: 0,
-      width: "100%",
-      height: "100%",
-      zIndex: 2
-    }
+      width: '100%',
+      height: '100%',
+      zIndex: 2,
+    },
   },
   thumbnail: {
-    minHeight: "380px",
-    borderRadius: "18px",
-    marginBottom: "36px",
-    color: "#fff",
-    position: "relative",
-    overflow: "hidden",
-    display:'flex',
-    alignContent:'center',
+    minHeight: '380px',
+    borderRadius: '18px',
+    marginBottom: '36px',
+    color: '#fff',
+    position: 'relative',
+    overflow: 'hidden',
+    display: 'flex',
+    alignContent: 'center',
     flexDirection: 'column',
-    justifyContent: 'space-around'
-  }
+    justifyContent: 'space-around',
+  },
 };
 const blogTemplate = ({ data, classes }) => {
-  const pageData = get(data, "prismic.allBlogposts.edges.0.node", []);
+  const pageData = get(data, 'prismic.allBlogposts.edges.0.node', []);
   return (
     <Layout>
       <SEO title={pageData.title} description={pageData.abstract} />
@@ -100,7 +100,7 @@ export const pageQuery = graphql`
             thumbnailSharp {
               childImageSharp {
                 fluid(maxWidth: 1024) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_noBase64
                 }
               }
             }
