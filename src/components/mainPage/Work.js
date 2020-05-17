@@ -1,10 +1,21 @@
-import React from "react";
-import ContentPanel from "./shared/ContentPanel";
-import Paragraph from "./shared/Paragraph";
+import React from 'react';
+import ContentPanel from './shared/ContentPanel';
+import Paragraph from './shared/Paragraph';
+import TableauResume from '../../templates/tableauTemplate';
+import { withStyles } from '@material-ui/core/styles';
 
-const work = props => {
+const styles = {
+  resume: {
+    transform: 'scale(0.55) translate(-40%, -30%)',
+    height: '550px',
+    '@media screen and (max-width: 1060px)': {
+      display: 'none',
+    },
+  },
+};
+const Work = ({ classes }) => {
   return (
-    <ContentPanel id="work" title="Work" {...props}>
+    <ContentPanel id="work" title="Work">
       <Paragraph>
         Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at
         eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi,
@@ -19,8 +30,11 @@ const work = props => {
         consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna
         magna sed nunc rhoncus amet feugiat tempus.
       </Paragraph>
+      <div className={classes.resume}>
+        <TableauResume url="https://public.tableau.com/views/WU_XUDONG_CV/Dashboard1" />
+      </div>
     </ContentPanel>
   );
 };
 
-export default work;
+export default withStyles(styles)(Work);
