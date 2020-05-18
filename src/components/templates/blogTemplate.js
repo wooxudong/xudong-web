@@ -69,10 +69,7 @@ const blogTemplate = ({ data, classes }) => {
       <article className={classes.article}>
         <div className={classes.thumbnail}>
           <div className={classes.image}>
-            <Image
-              fluid={pageData.thumbnailSharp.childImageSharp.fluid}
-              url={pageData.thumbnail.url}
-            />
+            <Image sharp={pageData.thumbnailSharp} image={pageData.thumbnail} />
           </div>
           <div className={classes.titleContainer}>
             <h1 className={classes.title}>{pageData.title}</h1>
