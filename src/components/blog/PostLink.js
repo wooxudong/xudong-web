@@ -46,8 +46,8 @@ const PostLink = ({ post, classes }) => {
       <Link to={postPath}>
         {!!post.thumbnail && (
           <Image
-            fluid={post.thumbnailSharp.childImageSharp.fluid}
-            url={post.thumbnail.url}
+            sharp={post.thumbnailSharp}
+            image={post.thumbnail}
           />
         )}
       </Link>
