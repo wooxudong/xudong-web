@@ -53,11 +53,13 @@ module.exports = {
       options: {
         repositoryName: process.env.PRISMIC_REPOSITORY_NAME,
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+        previews: false,
+        omitPrismicScript: true,
         pages: [
           {
             type: 'Blogpost', // TypeName from prismic
             match: '/blog/:uid', // pages will be generated under this pattern
-            component: require.resolve('./src/templates/blogTemplate.js'),
+            component: require.resolve('./src/components/templates/blogTemplate.js'),
           },
         ],
         sharpKeys: [/image|photo|picture/, 'thumbnail'],
