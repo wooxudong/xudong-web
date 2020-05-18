@@ -1,4 +1,6 @@
 import React from 'react';
-import TableauReport from 'tableau-react-embed';
+import loadable from '@loadable/component';
+
+const TableauReport = loadable(() => import('tableau-react-embed'));
 
 export default ({ url }) => <TableauReport url={url} />;
