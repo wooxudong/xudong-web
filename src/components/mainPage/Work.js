@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentPanel from './shared/ContentPanel';
 import Paragraph from './shared/Paragraph';
-import TableauResume from '../../templates/tableauTemplate';
+import TableauResume from '../templates/tableauTemplate';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {

@@ -4,7 +4,7 @@ import Layout from '../components/blog/Layout';
 import PostLink from '../components/blog/PostLink';
 import HeroHeader from '../components/blog/HeroHeader';
 import withStyles from '@material-ui/styles/withStyles';
-import SEO from '../components/SEO';
+import SEO from '../components/buildingBlocks/SEO';
 
 const styles = {
   grids: {
