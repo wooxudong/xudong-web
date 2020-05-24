@@ -1,4 +1,4 @@
-import React from 'react';
-import TableauReport from 'tableau-react-embed';
+import React from "react";
+import TableauReport from "tableau-react-embed";
 
 export default ({ url }) => <TableauReport url={url} />;

@@ -1,21 +1,21 @@
-import React from 'react';
-import ContentPanel from './shared/ContentPanel';
-import Paragraph from './shared/Paragraph';
-import TableauResume from '../../templates/tableauTemplate';
-import { withStyles } from '@material-ui/core/styles';
+import React from "react";
+import ContentPanel from "./shared/ContentPanel";
+import Paragraph from "./shared/Paragraph";
+import TableauResume from "../../templates/tableauTemplate";
+import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
   resume: {
-    transform: 'scale(0.55) translate(-40%, -30%)',
-    height: '550px',
-    '@media screen and (max-width: 1060px)': {
-      display: 'none',
-    },
-  },
+    transform: "scale(0.55) translate(-40%, -30%)",
+    height: "550px",
+    "@media screen and (max-width: 1060px)": {
+      display: "none"
+    }
+  }
 };
 const Work = ({ classes }) => {
   return (
-    <ContentPanel id="work" title="Work">
+    <ContentPanel>
       <Paragraph>
         Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at
         eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi,

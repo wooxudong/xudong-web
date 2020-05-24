@@ -60,11 +60,11 @@ const styles = {
   article: {
     padding: "4.5rem 2.5rem 1.5rem 2.5rem",
     position: "relative",
-    width: "40rem",
     maxWidth: "100%",
+    width: "46rem",
     backgroundColor: "rgba(27, 31, 34, 0.85)",
     borderRadius: "4px",
-    animationName: "Fade-In",
+    animationName: "$Fade-In",
     animationDuration: "1s",
     "& h2": {
       color: "#ffffff",
@@ -95,8 +95,7 @@ const styles = {
     fontSize: "1.5rem",
     lineHeight: "1.4",
     letterSpacing: "0.5rem",
-    color: "#ffffff",
-    fontFamily: "'Source Sans Pro', sans-serif"
+    color: "#ffffff"
   }
 };
 
@@ -110,7 +109,7 @@ const ContentPanel = props => {
   };
 
   return (
-    <article id={props.id} className={classes.article}>
+    <article id={props.id} className={classes.article} {...props}>
       <h2 className={classes.major}>{props.title}</h2>
       {props.children}
       <span className={classes.close} onClick={fadeOut} />

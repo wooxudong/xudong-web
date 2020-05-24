@@ -1,42 +1,42 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import withStyles from '@material-ui/styles/withStyles';
-import { mainGreen } from './styles/colors';
-import Img from 'gatsby-image';
-import { blog } from '../../contants/routes';
+import React from "react";
+import { Link } from "gatsby";
+import withStyles from "@material-ui/styles/withStyles";
+import { mainGreen } from "./styles/colors";
+import Img from "gatsby-image";
+import { blog } from "../../contants/routes";
 
 const styles = {
   card: {
-    display: 'grid',
-    backgroundColor: '#fff',
-    borderRadius: '9px',
-    border: '1px solid #eee',
-    boxShadow: '0 0 30px #d5d5d5',
-    overflow: 'hidden',
-    lineHeight: '1.5',
-    '&:hover': {
-      color: mainGreen,
+    display: "grid",
+    backgroundColor: "#fff",
+    borderRadius: "9px",
+    border: "1px solid #eee",
+    boxShadow: "0 0 30px #d5d5d5",
+    overflow: "hidden",
+    lineHeight: "1.5",
+    "&:hover": {
+      color: mainGreen
     },
-    '& img': {
-      display: 'block',
-    },
+    "& img": {
+      display: "block"
+    }
   },
   header: {
-    padding: '1.5rem',
+    padding: "1.5rem"
   },
   postTitle: {
-    fontSize: '1.2rem',
-    marginBottom: '0.3rem',
+    fontSize: "1.2rem",
+    marginBottom: "0.3rem"
   },
   postMeta: {
     fontWeight: 100,
     marginBottom: 0,
-    fontSize: '0.8rem',
+    fontSize: "0.8rem"
   },
   postLink: {
-    color: 'inherit',
-    textDecoration: 'none',
-  },
+    color: "inherit",
+    textDecoration: "none"
+  }
 };
 
 const PostLink = ({ post, classes }) => {

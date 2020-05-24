@@ -12,7 +12,7 @@ const styles = {
     marginLeft: "1.3rem"
   },
   sunIcon: {
-    position: 'relative',
+    position: "relative",
     display: "block",
     transform: "scale(var(--ggs,1))",
     width: "24px",

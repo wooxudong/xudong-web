@@ -3,7 +3,7 @@ import Footer from "../UI/Footer";
 import Background from "../UI/Background";
 import { withStyles } from "@material-ui/core/styles";
 import SEO from "../SEO";
-import { graphql,  useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 
 const styles = {
   app: {
