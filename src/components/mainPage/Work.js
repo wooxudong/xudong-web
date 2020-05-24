@@ -15,7 +15,7 @@ const styles = {
 };
 const Work = ({ classes }) => {
   return (
-    <ContentPanel id="work" title="Work">
+    <ContentPanel>
       <Paragraph>
         Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at
         eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi,

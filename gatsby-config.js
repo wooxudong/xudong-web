@@ -8,8 +8,8 @@ module.exports = {
     description: `wooxudong's personal website. I write blogs regarding film, tech and all random stuff.`,
     siteUrl: `https://www.wooxudong.com`,
     home: {
-      title: `Hi! I'm Delog`,
-      description: `I have been specifically designed to become a digital home for designers and developers, help them build amazing professional looking websites with ease. You don't have to worry about nitty gritty of web hosting services to run a blog and yet take full advantage of CMS to manage content :)`,
+      title: `我们无惧看透痛苦与距离`,
+      description: `All that is solid melts into air, all that is holy is profaned, and man is at last compelled to face with sober senses his real conditions of life, and his relations with his kind.`,
     },
   },
   plugins: [
@@ -59,7 +59,9 @@ module.exports = {
           {
             type: 'Blogpost', // TypeName from prismic
             match: '/blog/:uid', // pages will be generated under this pattern
-            component: require.resolve('./src/components/templates/blogTemplate.js'),
+            component: require.resolve(
+              './src/components/templates/blogTemplate.js'
+            ),
           },
         ],
         sharpKeys: [/image|photo|picture/, 'thumbnail'],

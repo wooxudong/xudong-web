@@ -1,49 +1,49 @@
-import React from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import Navigation from './Navigation';
-import 'prismjs/themes/prism-okaidia.css';
-import withStyles from '@material-ui/styles/withStyles';
-import { blog } from '../../contants/routes';
-import { mainGreen } from './styles/colors';
+import React from "react";
+import { Link, useStaticQuery, graphql } from "gatsby";
+import Navigation from "./Navigation";
+import "prismjs/themes/prism-okaidia.css";
+import withStyles from "@material-ui/styles/withStyles";
+import { blog } from "../../contants/routes";
+import { mainGreen } from "./styles/colors";
 
 const styles = {
   container: {
-    padding: '2rem',
-    maxWidth: '70rem',
-    margin: '0 auto',
-    '& img': {
-      maxWidth: '100%',
+    padding: "2rem",
+    maxWidth: "70rem",
+    margin: "0 auto",
+    "& img": {
+      maxWidth: "100%"
     },
-    '&:before': {
-      display: 'block',
+    "&:before": {
+      display: "block",
       content: '""',
-      position: 'absolute',
+      position: "absolute",
       top: 0,
       left: 0,
-      width: '100%',
-      borderTop: `0.8rem solid ${mainGreen}`,
-    },
+      width: "100%",
+      borderTop: `0.8rem solid ${mainGreen}`
+    }
   },
   header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    padding: '1.5px 0',
-    marginBottom: '2rem',
-    alignItems: 'center',
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "1.5px 0",
+    marginBottom: "2rem",
+    alignItems: "center"
   },
   title: {
     fontWeight: 900,
-    textTransform: 'uppercase',
-    '& a': {
+    textTransform: "uppercase",
+    "& a": {
       color: mainGreen,
-      textDecoration: 'none',
-    },
+      textDecoration: "none"
+    }
   },
   footer: {
-    textAlign: 'center',
-    margin: '5.5rem 0 1rem',
-    color: '#666',
-  },
+    textAlign: "center",
+    margin: "5.5rem 0 1rem",
+    color: "#666"
+  }
 };
 
 const Layout = ({ classes, children }) => {

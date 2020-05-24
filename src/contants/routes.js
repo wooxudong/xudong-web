@@ -1,1 +1,1 @@
-export const blog = '/blog';
+export const blog = "/blog";
