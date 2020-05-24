@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import React from "react";
 import ContentPanel from "./shared/ContentPanel";
 import Paragraph from "./shared/Paragraph";
 import TableauResume from "../../templates/tableauTemplate";
 import { withStyles } from "@material-ui/core/styles";
+=======
+import React from 'react';
+import ContentPanel from './shared/ContentPanel';
+import Paragraph from './shared/Paragraph';
+import TableauResume from '../templates/tableauTemplate';
+import { withStyles } from '@material-ui/core/styles';
+>>>>>>> bacda291948a6af3b30eb6ec717f17ce8cc3ac56
 
 const styles = {
   resume: {

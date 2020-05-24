@@ -2,8 +2,13 @@ import React from "react";
 import { Link } from "gatsby";
 import withStyles from "@material-ui/styles/withStyles";
 import { mainGreen } from "./styles/colors";
+<<<<<<< HEAD
 import Img from "gatsby-image";
 import { blog } from "../../contants/routes";
+=======
+import { blog } from "../../contants/routes";
+import Image from "../buildingBlocks/Image";
+>>>>>>> bacda291948a6af3b30eb6ec717f17ce8cc3ac56
 
 const styles = {
   card: {
@@ -45,7 +50,10 @@ const PostLink = ({ post, classes }) => {
     <article className={classes.card}>
       <Link to={postPath}>
         {!!post.thumbnail && (
-          <Img fluid={post.thumbnailSharp.childImageSharp.fluid} />
+          <Image
+            sharp={post.thumbnailSharp}
+            image={post.thumbnail}
+          />
         )}
       </Link>
       <header className={classes.header}>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/blog/Layout";
@@ -5,6 +6,15 @@ import PostLink from "../components/blog/PostLink";
 import HeroHeader from "../components/blog/HeroHeader";
 import withStyles from "@material-ui/styles/withStyles";
 import SEO from "../components/SEO";
+=======
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/blog/Layout';
+import PostLink from '../components/blog/PostLink';
+import HeroHeader from '../components/blog/HeroHeader';
+import withStyles from '@material-ui/styles/withStyles';
+import SEO from '../components/buildingBlocks/SEO';
+>>>>>>> bacda291948a6af3b30eb6ec717f17ce8cc3ac56
 
 const styles = {
   grids: {
