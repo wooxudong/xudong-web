@@ -76,7 +76,8 @@ const form = props => {
   const { classes } = props;
 
   return (
-    <form name="contact" method="POST" netlify-honeypot="bot-field" netlify>
+    <form name="contact" method="POST" data-netlify-honeypot="bot-field" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact" />
       <div className={classes.hidden}>
         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
       </div>
