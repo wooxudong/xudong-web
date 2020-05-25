@@ -76,7 +76,7 @@ const form = props => {
   const { classes } = props;
 
   return (
-    <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true">
+    <form name="contact" method="POST" netlify-honeypot="bot-field" netlify>
       <div className={classes.hidden}>
         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
       </div>
@@ -93,7 +93,6 @@ const form = props => {
           <Label htmlFor="message">Message</Label>
           <Textarea name="message" id="message" rows="4" />
         </div>
-        <div data-netlify-recaptcha="true"></div>
       </div>
       <ul className={classes.actions}>
         <li>
