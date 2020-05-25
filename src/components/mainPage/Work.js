@@ -1,35 +1,24 @@
-import React from 'react';
-import ContentPanel from './shared/ContentPanel';
-import Paragraph from './shared/Paragraph';
-import TableauResume from '../templates/tableauTemplate';
-import { withStyles } from '@material-ui/core/styles';
+import React from "react";
+import ContentPanel from "./shared/ContentPanel";
+import Paragraph from "./shared/Paragraph";
+import TableauResume from "../templates/tableauTemplate";
+import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
   resume: {
-    transform: 'scale(0.55) translate(-40%, -30%)',
-    height: '550px',
-    '@media screen and (max-width: 1060px)': {
-      display: 'none',
-    },
-  },
+    transform: "scale(0.65) translate(-26%, -30%)",
+    height: "550px",
+    "@media screen and (max-width: 1060px)": {
+      display: "none"
+    }
+  }
 };
-const Work = ({ classes }) => {
+const Work = ({ classes, contents }) => {
   return (
-    <ContentPanel>
-      <Paragraph>
-        Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at
-        eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi,
-        fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec
-        lorem luctus ultrices.
-      </Paragraph>
-      <Paragraph>
-        Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero.
-        Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque
-        condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa
-        vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem
-        consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna
-        magna sed nunc rhoncus amet feugiat tempus.
-      </Paragraph>
+    <ContentPanel id="work" title="Work">
+      {contents.map(content => (
+        <Paragraph key={content.paragraph.length}>{content.paragraph}</Paragraph>
+      ))}
       <div className={classes.resume}>
         <TableauResume url="https://public.tableau.com/views/WU_XUDONG_CV/Dashboard1" />
       </div>

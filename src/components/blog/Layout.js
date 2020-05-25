@@ -4,7 +4,7 @@ import Navigation from "./Navigation";
 import "prismjs/themes/prism-okaidia.css";
 import withStyles from "@material-ui/styles/withStyles";
 import { blog } from "../../contants/routes";
-import { mainGreen } from "./styles/colors";
+import { mainGreen } from "../styles/colors";
 
 const styles = {
   container: {
