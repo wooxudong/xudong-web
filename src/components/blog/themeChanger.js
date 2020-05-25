@@ -1,6 +1,7 @@
 import React from "react";
 import { ThemeToggler } from "gatsby-plugin-dark-mode";
 import { withStyles } from "@material-ui/styles";
+import { navigate } from "gatsby";
 
 const styles = {
   themeChanger: {
@@ -57,6 +58,7 @@ const ThemeChanger = ({ classes }) => (
           type="checkbox"
           className={classes.themeChanger}
           onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
+          onClick={() => navigate("/")}
           checked={theme === "dark"}
         />{" "}
         <div className={classes.modeContainer}>

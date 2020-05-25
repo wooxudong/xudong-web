@@ -8,15 +8,29 @@ const styles = {
     maxWidth: "60rem"
   },
   headLine: {
-    fontSize: "2.5rem",
+    fontSize: "4rem",
     fontWeight: 900,
-    marginBottom: "0.5rem"
+    marginBottom: "0.5rem",
+    fontFamily: 'Zhi Mang Xing, cursive',
   },
   description: {
     fontSize: "1.5rem",
     marginBottom: "2rem",
     lineHeight: "1.5",
-    fontWeight: "300"
+    fontWeight: "300",
+    padding: '0 1.5rem',
+    position: 'relative',
+    '& p:before':{
+      content:'open-quote',
+      position: 'absolute',
+      transform: 'translate(-1.5rem, -0.2rem)',
+    },
+    '& p:after':{
+      content:'close-quote',
+      position: 'absolute',
+      transform: 'translate(-1rem, 0.8rem)',
+      right: 0,
+    }
   }
 };
 const HeroHeader = ({ classes }) => {
