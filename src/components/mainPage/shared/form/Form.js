@@ -66,6 +66,9 @@ const styles = {
         paddingTop: 0
       }
     }
+  },
+  hidden:{
+    visibility: 'hidden',
   }
 };
 
@@ -73,7 +76,10 @@ const form = props => {
   const { classes } = props;
 
   return (
-    <form method="post" data-netlify="true">
+    <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true">
+      <div className={classes.hidden}>
+        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+      </div>
       <div className={classes.fields}>
         <div className={`${classes.field} ${classes.half}`}>
           <Label htmlFor="name">Name</Label>
@@ -87,6 +93,7 @@ const form = props => {
           <Label htmlFor="message">Message</Label>
           <Textarea name="message" id="message" rows="4" />
         </div>
+        <div data-netlify-recaptcha="true"></div>
       </div>
       <ul className={classes.actions}>
         <li>
