@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import withStyles from '@material-ui/styles/withStyles';
-import { mainGreen } from './styles/colors';
+import { mainGreen } from '../styles/colors';
 import { blog } from '../../contants/routes';
 import Image from '../buildingBlocks/Image';
 
