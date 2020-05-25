@@ -73,7 +73,7 @@ const form = props => {
   const { classes } = props;
 
   return (
-    <form method="post" dtata-netlify="true">
+    <form method="post" data-netlify="true">
       <div className={classes.fields}>
         <div className={`${classes.field} ${classes.half}`}>
           <Label htmlFor="name">Name</Label>
