@@ -1,12 +1,8 @@
 import React from "react";
-import { ThemeToggler } from "gatsby-plugin-dark-mode";
 import { withStyles } from "@material-ui/styles";
-import { navigate } from "gatsby";
+import { Link } from "gatsby";
 
 const styles = {
-  themeChanger: {
-    display: "none"
-  },
   modeContainer: {
     width: "1.5rem",
     height: " 1.5rem",
@@ -46,27 +42,16 @@ const styles = {
     },
     "&:after": {
       transform: "rotate(45deg)"
+    },
+    "&:hover": {
+      cursor: "pointer"
     }
   }
 };
 
-const ThemeChanger = ({ classes }) => (
-  <ThemeToggler>
-    {({ theme, toggleTheme }) => (
-      <label>
-        <input
-          type="checkbox"
-          className={classes.themeChanger}
-          onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
-          onClick={() => navigate("/")}
-          checked={theme === "dark"}
-        />{" "}
-        <div className={classes.modeContainer}>
-          <i className={classes.sunIcon} />
-          <i className="gg-moon" />
-        </div>
-      </label>
-    )}
-  </ThemeToggler>
+const HomeIcon = ({ classes }) => (
+  <Link className={classes.modeContainer} to={"/"}>
+    <i className={classes.sunIcon} />
+  </Link>
 );
-export default withStyles(styles)(ThemeChanger);
+export default withStyles(styles)(HomeIcon);

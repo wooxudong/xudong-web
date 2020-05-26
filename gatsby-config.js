@@ -21,44 +21,15 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: 'language-',
-              inlineCodeMarker: null,
-              aliases: {},
-              showLineNumbers: false,
-              noInlineHighlight: false,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-emojis',
-          },
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: 'UA-30027142-1',
-        head: true,
-      },
-    },
-    {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
         repositoryName: process.env.PRISMIC_REPOSITORY_NAME,
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
         previews: false,
-        omitPrismicScript: true,
         pages: [
           {
-            type: 'Blogpost', // TypeName from prismic
-            match: '/blog/:uid', // pages will be generated under this pattern
+            type: 'Blogpost',
+            match: '/blog/:uid',
             component: require.resolve(
               './src/components/templates/blogTemplate.js'
             ),
@@ -68,7 +39,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-dark-mode`,
     `gatsby-plugin-material-ui`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
