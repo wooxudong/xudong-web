@@ -36,7 +36,6 @@ const styles = {
   image: {
     position: 'absolute !important',
     width: '100%',
-    height: '100%',
     '&:before': {
       position: 'absolute',
       content: '""',

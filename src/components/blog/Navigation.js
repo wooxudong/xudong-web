@@ -1,5 +1,5 @@
 import React from "react";
-import ThemeChanger from "./themeChanger";
+import ThemeChanger from "./homeIcon";
 import withStyles from "@material-ui/styles/withStyles";
 
 const styles = {
