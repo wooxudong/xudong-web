@@ -36,7 +36,7 @@ const styles = {
   image: {
     position: "absolute !important",
     width: "100%",
-    height: "100%",
+    height: "auto !important",
     "&:before": {
       position: "absolute",
       content: '""',
@@ -49,7 +49,7 @@ const styles = {
     }
   },
   thumbnail: {
-    minHeight: "380px",
+    maxHeight: "380px",
     borderRadius: "18px",
     marginBottom: "36px",
     color: "#fff",
@@ -72,10 +72,8 @@ const blogTemplate = ({ data, classes }) => {
             fluid={pageData.thumbnailSharp.childImageSharp.fluid}
             className={classes.image}
           />
-          <div className={classes.titleContainer}>
-            <h1 className={classes.title}>{pageData.title}</h1>
-            <div className={classes.meta}>{pageData.publish_date}</div>
-          </div>
+          <h1 className={classes.title}>{pageData.title}</h1>
+          <div className={classes.meta}>{pageData.publish_date}</div>
         </div>
         <div className={classes.content}>{RichText.render(pageData.html)}</div>
       </article>
