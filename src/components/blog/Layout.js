@@ -62,7 +62,7 @@ const Layout = ({ classes, children }) => {
     <div className={classes.container}>
       <header className={classes.header}>
         <div className={classes.title}>
-          <Link to={blog}>{data.site.siteMetadata.title}</Link>
+          <Link to="/">{data.site.siteMetadata.title}</Link>
         </div>
         <Navigation />
       </header>
