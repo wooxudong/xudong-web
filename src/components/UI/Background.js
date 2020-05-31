@@ -42,7 +42,7 @@ const styles = {
 const Background = ({ classes }) => {
   const data = useStaticQuery(graphql`
     query BackgroundImageQuery {
-      file(relativePath: { eq: "background.jpg" }) {
+      file(relativePath: { eq: "background-2.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1024) {
             ...GatsbyImageSharpFluid_tracedSVG
