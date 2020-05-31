@@ -4,16 +4,21 @@ import Facebook from "../../../static/image/icons/Facebook.svg";
 import LinkedIn from "../../../static/image/icons/LinkedIn.svg";
 import Twitter from "../../../static/image/icons/Twitter.svg";
 import { withStyles } from "@material-ui/styles";
+import { mainGreen } from "../styles/colors";
 
 const styles = {
   container: {
     display: "flex",
-    flexDirection: "column",
-    position: "fixed",
-    right: "8rem",
-    bottom: "3rem",
-    height: "10rem",
-    justifyContent: "space-between",
+    alignItems: "center",
+    "& div": {
+      marginRight: "15px"
+    },
+    "&:last-child": {
+      marginRight: 0
+    }
+  },
+  text: {
+    color: mainGreen
   }
 };
 
@@ -23,6 +28,11 @@ const socialMedia = props => {
     <Location>
       {({ location }) => (
         <div {...props} className={classes.container}>
+          <div>
+            <p className={classes.text}>
+              <strong>Share post:</strong>
+            </p>
+          </div>
           <div>
             <a
               rel="noopener noreferrer"
