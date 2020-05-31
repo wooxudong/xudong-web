@@ -60,13 +60,18 @@ const styles = {
     alignContent: "center",
     flexDirection: "column",
     justifyContent: "space-around"
+  },
+  bottomGroup: {
+    paddingTop:'5rem',
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between"
   }
 };
 const blogTemplate = ({ data, classes }) => {
   const pageData = get(data, "prismic.allBlogposts.edges.0.node", {});
   return (
     <>
-      <BackIcon />
       <Layout>
         <SEO title={pageData.title} description={pageData.abstract} />
         <article className={classes.article}>
@@ -86,8 +91,11 @@ const blogTemplate = ({ data, classes }) => {
             {RichText.render(pageData.html)}
           </div>
         </article>
+        <div className={classes.bottomGroup}>
+          <BackIcon />
+          <SocialMedia />
+        </div>
       </Layout>
-      <SocialMedia />
     </>
   );
 };
