@@ -4,7 +4,7 @@ import withStyles from "@material-ui/styles/withStyles";
 
 const styles = {
   header: {
-    padding: "0 0 4rem",
+    padding: "0 0 2rem",
     maxWidth: "60rem"
   },
   headLine: {
