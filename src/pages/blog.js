@@ -95,7 +95,7 @@ export const pageQuery = graphql`
             thumbnail
             thumbnailSharp {
               childImageSharp {
-                fluid(maxWidth: 500) {
+                fluid(maxWidth: 500, maxHeight: 270) {
                   ...GatsbyImageSharpFluid_tracedSVG
                 }
               }
