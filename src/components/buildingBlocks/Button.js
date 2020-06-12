@@ -5,7 +5,7 @@ import { mainGreen, darkGreen } from "../styles/colors";
 const styles = {
   button: {
     display: "inline-block",
-    width: "8rem",
+    minWidth: "8rem",
     backgroundColor: mainGreen,
     color: "white",
     borderRadius: "10% / 50%",

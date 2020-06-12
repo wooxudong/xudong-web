@@ -27,6 +27,7 @@ const styles = {
     justifyContent: "space-between",
     padding: "1.5px 0",
     marginBottom: "2rem",
+    height: '1.5rem',
     alignItems: "center"
   },
   title: {
@@ -60,9 +61,11 @@ const Layout = ({ classes, children }) => {
     <div className={classes.container}>
       <header className={classes.header}>
         <div className={classes.title}>
-          <Link to="/">{data.site.siteMetadata.title}</Link>
+          <Link to="/blog">{data.site.siteMetadata.title}</Link>
         </div>
+        <div>
         <Navigation />
+        </div>
       </header>
       {children}
       <footer className={classes.footer}>
