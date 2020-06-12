@@ -1,6 +1,6 @@
 import React from 'react';
-import Footer from '../UI/Footer';
-import Background from '../UI/Background';
+import Footer from '../buildingBlocks/Footer';
+import Background from '../buildingBlocks/Background';
 import { withStyles, ThemeProvider } from '@material-ui/styles';
 import SEO from '../buildingBlocks/SEO';
 import { graphql, useStaticQuery } from 'gatsby';

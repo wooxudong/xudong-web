@@ -1,5 +1,5 @@
 import React from "react";
-import ImageAvatars from "../UI/Avatar";
+import Avatar from "../buildingBlocks/Avatar";
 import { Link } from "gatsby";
 import { makeStyles } from "@material-ui/styles";
 import Paragraph from "./shared/Paragraph";
@@ -210,7 +210,7 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
-        <ImageAvatars />
+        <Avatar />
       </div>
       <div className={classes.content}>
         <div className={classes.inner}>

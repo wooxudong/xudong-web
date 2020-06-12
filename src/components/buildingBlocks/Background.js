@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
-import withStyles from "@material-ui/core/styles/withStyles";
+import { withStyles } from "@material-ui/styles";
 
 const styles = {
   image: {

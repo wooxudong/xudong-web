@@ -1,9 +1,7 @@
 import React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import Navigation from "./Navigation";
-import "prismjs/themes/prism-okaidia.css";
 import withStyles from "@material-ui/styles/withStyles";
-import { blog } from "../../contants/routes";
 import { mainGreen } from "../styles/colors";
 
 const styles = {

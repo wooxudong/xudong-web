@@ -5,7 +5,7 @@ import PostLink from "../components/blog/PostLink";
 import HeroHeader from "../components/blog/HeroHeader";
 import withStyles from "@material-ui/styles/withStyles";
 import SEO from "../components/buildingBlocks/SEO";
-import Tag from "../components/UI/Button";
+import Tag from "../components/buildingBlocks/Button";
 import { get } from "loadsh";
 
 const styles = {
