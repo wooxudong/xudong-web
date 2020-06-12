@@ -1,9 +1,10 @@
 import React from 'react';
 import Footer from '../UI/Footer';
 import Background from '../UI/Background';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, ThemeProvider } from '@material-ui/styles';
 import SEO from '../buildingBlocks/SEO';
 import { graphql, useStaticQuery } from 'gatsby';
+import defaultTheme from '../styles/theme';
 
 const styles = {
   app: {
@@ -51,7 +52,9 @@ const Layout = ({ classes, children }) => {
         description={data.site.siteMetadata.description}
       />
       <div className={classes.app}>
-        {children}
+        <ThemeProvider theme={defaultTheme}>
+          {children}
+        </ThemeProvider>
         <Footer />
       </div>
       <Background />
