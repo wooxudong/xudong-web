@@ -1,6 +1,6 @@
 import React from "react";
 import ContentPanel from "./shared/ContentPanel";
-import Timeline from "../UI/Timeline";
+import Timeline from "../buildingBlocks/Timeline";
 
 
 const intro = props => {

@@ -1,10 +1,10 @@
 import React from "react";
-import ImageAvatars from "../UI/Avatar";
+import Avatar from "../buildingBlocks/Avatar";
 import { Link } from "gatsby";
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/styles";
 import Paragraph from "./shared/Paragraph";
 
-const styles = {
+const useStyles = makeStyles(theme => ({
   header: {
     display: "flex",
     flexDirection: "column",
@@ -38,7 +38,7 @@ const styles = {
     "& > :first-child:before": {
       display: "none"
     },
-    "@media screen and (max-width: 600px)": {
+    [theme.breakpoints.down("md")]: {
       padding: "1.5rem 0",
 
       "& > *": {
@@ -63,12 +63,12 @@ const styles = {
       letterSpacing: "0.2rem",
       fontSize: "0.8rem",
       lineHeight: 2,
-      "@media screen and (max-width: 960px)": {
+      [theme.breakpoints.down("lg")]: {
         "& br": {
           display: "none"
         }
       },
-      "@media screen and (max-width: 600px)": {
+      [theme.breakpoints.down("md")]: {
         "& p": {
           lineHeight: "1.875"
         }
@@ -78,13 +78,12 @@ const styles = {
   logo: {
     width: "5.5rem",
     height: "5.5rem",
-    lineHeight: "5.5rem",
     border: "solid 1px #ffffff",
-    borderRadius: "100%",
-    "@media screen and (max-width: 600px)": {
+    borderRadius: "50%",
+    overflow:'hidden',
+    [theme.breakpoints.down("md")]: {
       width: "4.75rem",
       height: "4.75rem",
-      lineHeight: "4.75rem"
     }
   },
   inner: {
@@ -119,7 +118,7 @@ const styles = {
       letterSpacing: "0.2rem",
       lineHeight: 1.3
     },
-    "@media screen and (max-width: 600px)": {
+    [theme.breakpoints.down("md")]: {
       padding: "2.5rem 0rem"
     }
   },
@@ -132,7 +131,7 @@ const styles = {
     paddingLeft: 0,
     border: "solid 1px #ffffff",
     borderRadius: "4px",
-    "@media screen and (max-width: 600px)": {
+    [theme.breakpoints.down("md")]: {
       flexDirection: "column",
       minWidth: "10rem",
       maxWidth: "100%"
@@ -166,7 +165,7 @@ const styles = {
         backgroundColor: "rgba(255, 255, 255, 0.175)"
       }
     },
-    "@media screen and (max-width: 600px)": {
+    [theme.breakpoints.down("md")]: {
       borderLeft: 0,
       borderTop: "solid 1px #ffffff",
       "&:first-child": {
@@ -204,13 +203,14 @@ const styles = {
       opacity: 1
     }
   }
-};
+}));
 
-const Header = ({ classes }) => {
+const Header = () => {
+  const classes = useStyles();
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
-        <ImageAvatars />
+        <Avatar />
       </div>
       <div className={classes.content}>
         <div className={classes.inner}>
@@ -243,4 +243,4 @@ const Header = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(Header);
+export default Header;

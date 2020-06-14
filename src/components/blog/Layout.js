@@ -1,9 +1,7 @@
 import React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import Navigation from "./Navigation";
-import "prismjs/themes/prism-okaidia.css";
 import withStyles from "@material-ui/styles/withStyles";
-import { blog } from "../../contants/routes";
 import { mainGreen } from "../styles/colors";
 
 const styles = {
@@ -29,6 +27,7 @@ const styles = {
     justifyContent: "space-between",
     padding: "1.5px 0",
     marginBottom: "2rem",
+    height: '1.5rem',
     alignItems: "center"
   },
   title: {
@@ -62,9 +61,11 @@ const Layout = ({ classes, children }) => {
     <div className={classes.container}>
       <header className={classes.header}>
         <div className={classes.title}>
-          <Link to="/">{data.site.siteMetadata.title}</Link>
+          <Link to="/blog">{data.site.siteMetadata.title}</Link>
         </div>
+        <div>
         <Navigation />
+        </div>
       </header>
       {children}
       <footer className={classes.footer}>

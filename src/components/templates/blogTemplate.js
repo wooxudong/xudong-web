@@ -2,12 +2,12 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../blog/Layout";
 import get from "loadsh/get";
-import { RichText } from "prismic-reactjs";
 import SEO from "../buildingBlocks/SEO";
 import withStyles from "@material-ui/styles/withStyles";
 import Image from "../buildingBlocks/Image";
 import SocialMedia from "../blog/socialMedia";
 import BackIcon from "../blog/icons/backIcon";
+import BodySlice from "./blogSlices/sliceZone";
 
 const styles = {
   article: {
@@ -17,6 +17,7 @@ const styles = {
   content: {
     maxWidth: "768px",
     margin: "0 auto",
+    lineHeight: '2rem',
     "&:last-child": {
       marginBottom: 0
     }
@@ -62,7 +63,7 @@ const styles = {
     justifyContent: "space-around"
   },
   bottomGroup: {
-    paddingTop:'5rem',
+    paddingTop: "5rem",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between"
@@ -88,7 +89,7 @@ const blogTemplate = ({ data, classes }) => {
             </div>
           </div>
           <div className={classes.content}>
-            {RichText.render(pageData.html)}
+            <BodySlice body={pageData.body}/>
           </div>
         </article>
         <div className={classes.bottomGroup}>
@@ -108,7 +109,6 @@ export const pageQuery = graphql`
       allBlogposts(uid: $uid) {
         edges {
           node {
-            html
             title
             author
             publish_date
@@ -119,6 +119,21 @@ export const pageQuery = graphql`
               childImageSharp {
                 fluid(maxWidth: 1024) {
                   ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
+            }
+            body {
+              ... on PRISMIC_BlogpostBodyRich_text {
+                type
+                primary {
+                  paragraph
+                }
+              }
+              ... on PRISMIC_BlogpostBodyCode {
+                type
+                label
+                primary {
+                  code
                 }
               }
             }
