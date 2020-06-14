@@ -34,7 +34,7 @@ const styles = {
 };
 
 const Navigation = ({ classes }) => (
-  <Link className={classes.backToHome}>
+  <Link className={classes.backToHome} to={"/"}>
     <img alt="back icon" src={BackArrow} className={classes.backArrow} />
     <strong>Back to home</strong>
   </Link>

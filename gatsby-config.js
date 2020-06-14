@@ -38,6 +38,16 @@ module.exports = {
         sharpKeys: [/image|photo|picture/, 'thumbnail'],
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+          },
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-material-ui`,
     `gatsby-transformer-sharp`,
