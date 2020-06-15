@@ -15,8 +15,8 @@ const useStyles = makeStyles({
 
 const CodeSlice = ({ content }) => {
   const rawMarkdown = RichText.asText(content);
-
   const classes = useStyles();
+
   useEffect(() => {
     Prism.highlightAll();
   });
