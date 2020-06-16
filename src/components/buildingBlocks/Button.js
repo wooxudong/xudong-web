@@ -1,6 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/styles";
-import { mainGreen, darkGreen } from "../styles/colors";
+import { darkGreen, mainGreen } from "../styles/colors";
 
 const styles = {
   button: {
@@ -12,25 +12,31 @@ const styles = {
     padding: ".4rem 1rem",
     fontWeight: 700,
     fontSize: "1rem",
-    textAlign:'center',
+    textAlign: "center",
     textTransform: "capitalize",
+    outline: "none",
     "&:hover": {
+      backgroundColor: darkGreen,
+      cursor: "pointer"
+    },
+    "&:active": {
       backgroundColor: darkGreen,
       cursor: "pointer"
     }
   }
 };
 
-const button = ({ classes, text, action }) => {
+const Button = ({ classes, text, action }) => {
   const handleClick = event => {
     const value = event.currentTarget.textContent;
     action(value);
   };
+
   return (
-    <div onClick={handleClick} className={classes.button}>
+    <button onClick={handleClick} className={classes.button}>
       {text}
-    </div>
+    </button>
   );
 };
 
-export default withStyles(styles)(button);
+export default withStyles(styles)(Button);

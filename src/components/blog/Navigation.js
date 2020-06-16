@@ -19,12 +19,9 @@ const styles = {
     position: 'relative',
     width: "3rem",
     height: "2rem",
-    borderRadius: "5px",
     color: `${mainGreen}`,
-    textAlign: "center",
     textDecoration: "none",
     padding: "2px",
-    transition: "border .5s ease-in-out",
     "&:hover": {
       "& $backArrow": {
         width: "2rem"
@@ -40,4 +37,4 @@ const Navigation = ({ classes }) => (
   </Link>
 );
 
-export default withStyles(styles)(Navigation);
+export default  withStyles(styles)(Navigation);

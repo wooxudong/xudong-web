@@ -85,7 +85,7 @@ const Timeline = props => {
 
   const events = entries.map(entry => (
     <li className={classes.timelineEvent} key={entry.company}>
-      <label className={classes.timelineEventIcon} />
+      <div className={classes.timelineEventIcon} />
       <div className={classes.timelineEventCopy}>
         <p className={classes.timelineEventThumbnail}>{entry.year}</p>
         <h3>{entry.company}</h3>
