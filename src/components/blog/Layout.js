@@ -3,6 +3,7 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import Navigation from "./Navigation";
 import withStyles from "@material-ui/styles/withStyles";
 import { mainGreen } from "../styles/colors";
+import { blog } from "../../contants/routes";
 
 const styles = {
   container: {
@@ -27,15 +28,29 @@ const styles = {
     justifyContent: "space-between",
     padding: "1.5px 0",
     marginBottom: "2rem",
-    height: '1.5rem',
+    height: "1.5rem",
     alignItems: "center"
   },
   title: {
     fontWeight: 900,
+    position: "relative",
     textTransform: "uppercase",
     "& a": {
       color: mainGreen,
       textDecoration: "none"
+    },
+    "&:before": {
+      position: "absolute",
+      width: "100%",
+      content: '""',
+      bottom: 0,
+      borderBottom: `4px solid ${mainGreen}`,
+      transform: "translateY(.5rem) scaleX(0)",
+      transformOrigin: "0% center",
+      transition: "transform .25s ease-in-out"
+    },
+    "&:hover:before": {
+      transform: "translateY(.5rem) scaleX(1)"
     }
   },
   footer: {
@@ -61,10 +76,10 @@ const Layout = ({ classes, children }) => {
     <div className={classes.container}>
       <header className={classes.header}>
         <div className={classes.title}>
-          <Link to="/blog">{data.site.siteMetadata.title}</Link>
+          <Link to={blog}>{data.site.siteMetadata.title}</Link>
         </div>
         <div>
-        <Navigation />
+          <Navigation />
         </div>
       </header>
       {children}

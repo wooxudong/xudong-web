@@ -48,6 +48,18 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Xudong's Personal Website`,
+        short_name: `wooxudong`,
+        description: `Xudong's personal website capturing life in film, technology and etc.`,
+        lang: `en`,
+        display: `standalone`,
+        icon: `static/image/icons/favicon.png`,
+        start_url: `/`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-material-ui`,
     `gatsby-transformer-sharp`,
