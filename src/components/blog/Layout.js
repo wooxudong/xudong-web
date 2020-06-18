@@ -71,7 +71,9 @@ const Layout = ({ classes, children }) => {
       query LayoutQuery {
         site {
           siteMetadata {
-            title
+            blog {
+              title
+            }
           }
         }
       }
@@ -83,7 +85,7 @@ const Layout = ({ classes, children }) => {
         <div>
           <img src={logo} alt={"logo"} className={classes.logo} />
           <Link to={blog} className={classes.title}>
-            {data.site.siteMetadata.title}
+            {data.site.siteMetadata.blog.title}
           </Link>
         </div>
         <div>
