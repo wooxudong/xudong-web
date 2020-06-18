@@ -6,17 +6,17 @@ import BackArrow from "../../../static/image/icons/back.svg";
 
 const styles = {
   backArrow: {
-    position:"absolute",
-    right:'0',
-    display:'block',
-    height: '1.5rem',
+    position: "absolute",
+    right: "0",
+    display: "block",
+    height: "1.5rem",
     width: "0",
     transition: "width .5s ease-in-out",
     marginRight: "1rem",
     transform: "translate(-6rem, -.2rem)"
   },
   backToHome: {
-    position: 'relative',
+    position: "relative",
     width: "3rem",
     height: "2rem",
     color: `${mainGreen}`,
@@ -37,4 +37,4 @@ const Navigation = ({ classes }) => (
   </Link>
 );
 
-export default  withStyles(styles)(Navigation);
+export default withStyles(styles)(Navigation);

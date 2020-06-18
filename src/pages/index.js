@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../components/mainPage/Layout";
-import Header from "../components/mainPage/Header";
+import Layout from "../components/home/Layout";
+import Header from "../components/home/Header";
 
 export default () => {
   return (

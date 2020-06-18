@@ -1,6 +1,6 @@
 import React from "react";
-import Contact from "../components/mainPage/Contact";
-import Layout from "../components/mainPage/Layout";
+import Contact from "../components/home/Contact";
+import Layout from "../components/home/Layout";
 
 export default () => (
   <Layout>
