@@ -21,7 +21,7 @@ const styles = {
   },
 };
 
-const Button = ({ classes, text, action }) => {
+const Tag = ({ classes, text, action }) => {
   const handleClick = (event) => {
     const value = event.currentTarget.textContent;
     action(value);
@@ -34,4 +34,4 @@ const Button = ({ classes, text, action }) => {
   );
 };
 
-export default withStyles(styles)(Button);
+export default withStyles(styles)(Tag);

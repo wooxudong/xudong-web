@@ -1,9 +1,10 @@
 import React from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import Navigation from "./Navigation";
-import withStyles from "@material-ui/styles/withStyles";
+import { withStyles } from "@material-ui/styles";
 import { mainGreen } from "../styles/colors";
 import { blog } from "../../contants/routes";
+import logo from "../../../static/image/icons/favicon.svg";
 
 const styles = {
   container: {
@@ -26,19 +27,16 @@ const styles = {
   header: {
     display: "flex",
     justifyContent: "space-between",
-    padding: "1.5px 0",
-    marginBottom: "2rem",
+    marginBottom: "3rem",
     height: "1.5rem",
-    alignItems: "center"
+    alignItems: "baseline"
   },
   title: {
     fontWeight: 900,
     position: "relative",
     textTransform: "uppercase",
-    "& a": {
-      color: mainGreen,
-      textDecoration: "none"
-    },
+    color: mainGreen,
+    textDecoration: "none",
     "&:before": {
       position: "absolute",
       width: "100%",
@@ -53,6 +51,13 @@ const styles = {
       transform: "translateY(.5rem) scaleX(1)"
     }
   },
+  logo: {
+    display: "inline-block",
+    width: "2rem",
+    height: "2rem",
+    transform: "translateY(.5rem)",
+    marginRight: ".7rem"
+  },
   footer: {
     textAlign: "center",
     margin: "5.5rem 0 1rem",
@@ -66,7 +71,9 @@ const Layout = ({ classes, children }) => {
       query LayoutQuery {
         site {
           siteMetadata {
-            title
+            blog {
+              title
+            }
           }
         }
       }
@@ -75,8 +82,11 @@ const Layout = ({ classes, children }) => {
   return (
     <div className={classes.container}>
       <header className={classes.header}>
-        <div className={classes.title}>
-          <Link to={blog}>{data.site.siteMetadata.title}</Link>
+        <div>
+          <img src={logo} alt={"logo"} className={classes.logo} />
+          <Link to={blog} className={classes.title}>
+            {data.site.siteMetadata.blog.title}
+          </Link>
         </div>
         <div>
           <Navigation />

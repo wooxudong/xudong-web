@@ -5,7 +5,7 @@ import PostLink from "../components/blog/PostLink";
 import HeroHeader from "../components/blog/HeroHeader";
 import withStyles from "@material-ui/styles/withStyles";
 import SEO from "../components/buildingBlocks/SEO";
-import Tag from "../components/buildingBlocks/Button";
+import Tag from "../components/buildingBlocks/Tag";
 import { get } from "loadsh";
 
 const styles = {
@@ -56,14 +56,17 @@ const BlogPage = ({ data: { site, prismic }, classes }) => {
   return (
     <Layout>
       <SEO
-        title={site.siteMetadata.title}
+        title={site.siteMetadata.blog.title}
         description={site.siteMetadata.description}
       />
-      <HeroHeader />
+      <HeroHeader
+        slogan={site.siteMetadata.blog.slogan}
+        description={site.siteMetadata.blog.description}
+      />
       <div className={classes.tags}>
         <span>Tags:</span>
         {tags.map(tag => (
-          <Tag text={tag} action={(value) => setTag(value)} key={tag} />
+          <Tag text={tag} action={value => setTag(value)} key={tag} />
         ))}
       </div>
       <h2>Blog Posts &darr;</h2>
@@ -81,8 +84,12 @@ export const pageQuery = graphql`
   query indexPageQuery {
     site {
       siteMetadata {
-        title
         description
+        blog {
+          title
+          slogan
+          description
+        }
       }
     }
     prismic {

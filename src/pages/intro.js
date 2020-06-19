@@ -1,6 +1,6 @@
 import React from "react";
-import Intro from "../components/mainPage/Intro";
-import Layout from "../components/mainPage/Layout";
+import Intro from "../components/home/Intro";
+import Layout from "../components/home/Layout";
 import { graphql } from "gatsby";
 import { get } from "loadsh";
 

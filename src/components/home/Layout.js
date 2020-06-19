@@ -38,7 +38,7 @@ const Layout = ({ classes, children }) => {
     query {
       site {
         siteMetadata {
-          title
+          homeTitle
           description
         }
       }
@@ -48,7 +48,7 @@ const Layout = ({ classes, children }) => {
   return (
     <>
       <SEO
-        title={data.site.siteMetadata.title}
+        title={data.site.siteMetadata.homeTitle}
         description={data.site.siteMetadata.description}
       />
       <div className={classes.app}>
