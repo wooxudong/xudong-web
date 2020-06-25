@@ -32,6 +32,7 @@ const styles = {
     }
   }
 };
+
 const HeroHeader = ({ classes, slogan, description }) => {
   return (
     <div className={classes.header}>
