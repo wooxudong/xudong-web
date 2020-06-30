@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import CodeSlice from "./code";
-import { RichText } from "prismic-reactjs";
+import ParagraphSlice from "./paragraph";
 import { CODE, RICH_TEXT } from "./sliceType";
 
 export default ({ body }) => {
@@ -13,9 +13,7 @@ export default ({ body }) => {
               return <CodeSlice key={i} content={bodyContent.primary.code} />;
             case RICH_TEXT:
               return (
-                <Fragment key={i}>
-                  {RichText.render(bodyContent.primary.paragraph)}
-                </Fragment>
+                <ParagraphSlice paragraph={bodyContent.primary.paragraph} />
               );
             default:
               return null;

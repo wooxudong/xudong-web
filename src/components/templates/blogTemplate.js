@@ -15,9 +15,7 @@ const styles = {
     lineHeight: "1.5"
   },
   content: {
-    maxWidth: "768px",
     margin: "0 auto",
-    lineHeight: '2rem',
     "&:last-child": {
       marginBottom: 0
     }
@@ -31,10 +29,15 @@ const styles = {
     zIndex: 3
   },
   meta: {
-    marginBottom: "2rem",
     textAlign: "center",
     position: "relative",
-    zIndex: 3
+    zIndex: 3,
+    textTransform:'uppercase',
+  },
+  authorTags: {
+    paddingBottom: "1rem",
+    borderBottom: "1px solid grey",
+    margin: "2rem 0"
   },
   image: {
     position: "absolute !important",
@@ -85,11 +88,12 @@ const blogTemplate = ({ data, classes }) => {
             </div>
             <div className={classes.titleContainer}>
               <h1 className={classes.title}>{pageData.title}</h1>
+              <div className={classes.meta}>By {pageData.author}</div>
               <div className={classes.meta}>{pageData.publish_date}</div>
             </div>
           </div>
           <div className={classes.content}>
-            <BodySlice body={pageData.body}/>
+            <BodySlice body={pageData.body} />
           </div>
         </article>
         <div className={classes.bottomGroup}>
