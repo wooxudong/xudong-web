@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
-import CodeSlice from "./code";
-import ParagraphSlice from "./paragraph";
-import { CODE, RICH_TEXT } from "./sliceType";
+import React from 'react';
+import CodeSlice from './code';
+import ParagraphSlice from './paragraph';
+import { CODE, RICH_TEXT } from './sliceType';
 
 export default ({ body }) => {
   return (

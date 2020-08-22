@@ -1,7 +1,9 @@
-import breakpoints from "./breakpints";
+import breakpoints from './breakpints';
+import fonts from './fonts';
 
 const defaultTheme = {
-  breakpoints
+  breakpoints,
+  fonts,
 };
 
 export default defaultTheme;
