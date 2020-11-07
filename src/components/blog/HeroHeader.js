@@ -3,7 +3,6 @@ import withStyles from '@material-ui/styles/withStyles';
 
 const styles = {
   header: {
-    padding: '0 0 2rem',
     maxWidth: '110rem',
   },
   headLine: {
@@ -14,7 +13,6 @@ const styles = {
   },
   description: {
     fontSize: '1.5rem',
-    marginBottom: '2rem',
     lineHeight: '1.5',
     fontWeight: '300',
     padding: '0 1.5rem',

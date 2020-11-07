@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { withStyles, ThemeProvider } from '@material-ui/styles';
 import { mainGreen } from '../styles/colors';
-import { blog } from '../../contants/routes';
+import { portfolio } from '../../contants/routes';
 import Header from '../buildingBlocks/Header';
 import defaultTheme from '../styles/theme';
 
@@ -34,10 +34,10 @@ const styles = {
 const Layout = ({ classes, children }) => {
   const data = useStaticQuery(
     graphql`
-      query LayoutQuery {
+      query PortfolioLayoutQuery {
         site {
           siteMetadata {
-            blog {
+            portfolio {
               title
             }
           }
@@ -48,7 +48,10 @@ const Layout = ({ classes, children }) => {
   return (
     <div className={classes.container}>
       <ThemeProvider theme={defaultTheme}>
-        <Header title={data.site.siteMetadata.blog.title} linkTo={blog} />
+        <Header
+          title={data.site.siteMetadata.blog.portfolio}
+          linkTo={portfolio}
+        />
         {children}
         <footer className={classes.footer}>
           <p>

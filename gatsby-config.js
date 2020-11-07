@@ -1,5 +1,5 @@
-require("dotenv").config({
-  path: ".env"
+require('dotenv').config({
+  path: '.env',
 });
 
 module.exports = {
@@ -10,16 +10,21 @@ module.exports = {
     blog: {
       title: `The Neverland`,
       slogan: `我们无惧看透痛苦与距离`,
-      description: `All that is solid melts into air, all that is holy is profaned, and man is at last compelled to face with sober senses his real conditions of life, and his relations with his kind.`
-    }
+      description: `All that is solid melts into air, all that is holy is profaned, and man is at last compelled to face with sober senses his real conditions of life, and his relations with his kind.`,
+    },
+    portfolio: {
+      title: 'My Portfolio',
+      slogan:
+        '那些与时代太过于一致的人，那些在每一个方面都完美地附着于时代的人，不是当代的人；这恰恰是因为他们无法目睹时代；他们无法坚守自身对时代的凝视。',
+    },
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `img`,
-        path: `${__dirname}/static/image`
-      }
+        path: `${__dirname}/static/image`,
+      },
     },
     {
       resolve: `gatsby-source-prismic-graphql`,
@@ -29,25 +34,25 @@ module.exports = {
         previews: false,
         pages: [
           {
-            type: "Blogpost",
-            match: "/blog/:uid",
+            type: 'Blogpost',
+            match: '/blog/:uid',
             component: require.resolve(
-              "./src/components/templates/blogTemplate.js"
-            )
-          }
+              './src/components/templates/blogTemplate.js'
+            ),
+          },
         ],
-        sharpKeys: [/image|photo|picture/, "thumbnail"]
-      }
+        sharpKeys: [/image|photo|picture/, 'thumbnail'],
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-prismjs`
-          }
-        ]
-      }
+            resolve: `gatsby-remark-prismjs`,
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -58,12 +63,12 @@ module.exports = {
         lang: `en`,
         display: `standalone`,
         icon: `static/image/icons/favicon.png`,
-        start_url: `/`
-      }
+        start_url: `/`,
+      },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-material-ui`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`
-  ]
+    `gatsby-plugin-sharp`,
+  ],
 };

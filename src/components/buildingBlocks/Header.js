@@ -1,8 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { mainGreen } from '../styles/colors';
 import logo from '../../../static/image/icons/favicon.svg';
-import Navigation from '../blog/Navigation';
+import Navigation from './Navigation';
 import { Link } from 'gatsby';
 
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     },
     display: 'flex',
     justifyContent: 'space-between',
-    marginBottom: '6rem',
+    marginBottom: '4rem',
     height: '5rem',
     alignItems: 'baseline',
   },
@@ -24,14 +23,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.fonts.big,
     position: 'relative',
     textTransform: 'uppercase',
-    color: mainGreen,
+    color: theme.colors.mainGreen,
     textDecoration: 'none',
     '&:before': {
       position: 'absolute',
       width: '100%',
       content: '""',
       bottom: 0,
-      borderBottom: `4px solid ${mainGreen}`,
+      borderBottom: `4px solid ${theme.colors.mainGreen}`,
       transform: 'translateY(.5rem) scaleX(0)',
       transformOrigin: '0% center',
       transition: 'transform .25s ease-in-out',
