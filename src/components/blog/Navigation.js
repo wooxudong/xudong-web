@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { mainGreen } from '../styles/colors';
 import { Link } from 'gatsby';
 import BackArrow from '../../../static/image/icons/back.svg';
 
@@ -16,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       tansform: 'translate(-6rem, -.2rem)',
     },
-    transform: 'translate(-15rem, .5rem) scale(1.5)',
+    transform: 'translate(-16rem, .5rem) scale(1.5)',
   },
   backToHome: {
     [theme.breakpoints.down('md')]: {
@@ -24,11 +23,13 @@ const useStyles = makeStyles((theme) => ({
     },
     position: 'relative',
     fontSize: theme.fonts.big,
+    borderRadius: '8px',
+    backgroundColor: theme.colors.mainGreen,
     width: '3rem',
     height: '2rem',
-    color: `${mainGreen}`,
+    color: theme.colors.white,
     textDecoration: 'none',
-    padding: '2px',
+    padding: '0.2rem 1rem',
     '&:hover': {
       '& $backArrow': {
         width: '2rem',
