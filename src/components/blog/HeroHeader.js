@@ -25,7 +25,7 @@ const styles = {
     '& p:after': {
       content: 'close-quote',
       position: 'absolute',
-      transform: 'translate(-1rem, 0.8rem)',
+      transform: 'translateY(0.8rem)',
       right: 0,
     },
   },

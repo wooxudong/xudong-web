@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/blog/Layout';
+import Layout from '../components/buildingBlocks/Layout';
 import PostLink from '../components/blog/PostLink';
 import HeroHeader from '../components/blog/HeroHeader';
 import withStyles from '@material-ui/styles/withStyles';
 import SEO from '../components/buildingBlocks/SEO';
 import Tag from '../components/blog/Tag';
 import { get } from 'loadsh';
+import { blog } from '../contants/routes';
 
 const styles = {
   grids: {
@@ -56,7 +57,7 @@ const BlogPage = ({ data: { site, prismic }, classes }) => {
   tags.unshift('all');
 
   return (
-    <Layout>
+    <Layout title={site.siteMetadata.blog.title} to={blog}>
       <SEO
         title={site.siteMetadata.blog.title}
         description={site.siteMetadata.description}

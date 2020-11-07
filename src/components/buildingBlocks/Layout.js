@@ -1,12 +1,11 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import { withStyles, ThemeProvider } from '@material-ui/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/styles';
 import { mainGreen } from '../styles/colors';
-import { blog } from '../../contants/routes';
 import Header from '../buildingBlocks/Header';
 import defaultTheme from '../styles/theme';
+import Footer from '../buildingBlocks/Footer';
 
-const styles = {
+const useStyles = makeStyles({
   container: {
     padding: '1rem 2rem',
     maxWidth: '70rem',
@@ -29,34 +28,18 @@ const styles = {
     margin: '5.5rem 0 1rem',
     color: '#666',
   },
-};
+});
 
-const Layout = ({ classes, children }) => {
-  const data = useStaticQuery(
-    graphql`
-      query LayoutQuery {
-        site {
-          siteMetadata {
-            blog {
-              title
-            }
-          }
-        }
-      }
-    `
-  );
+const Layout = ({ children, title, to }) => {
+  const classes = useStyles();
   return (
     <div className={classes.container}>
       <ThemeProvider theme={defaultTheme}>
-        <Header title={data.site.siteMetadata.blog.title} linkTo={blog} />
+        <Header title={title} linkTo={to} />
         {children}
-        <footer className={classes.footer}>
-          <p>
-            &copy; {new Date().getFullYear()} Wu Xudong. All Rights Reserved.
-          </p>
-        </footer>
+        <Footer />
       </ThemeProvider>
     </div>
   );
 };
-export default withStyles(styles)(Layout);
+export default Layout;
