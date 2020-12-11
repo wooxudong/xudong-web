@@ -51,7 +51,7 @@ const BlogPage = ({ data: { site, prismic }, classes }) => {
     setPosts(posts);
   }, [tag, prismic]);
 
-  let tags = get(prismic, 'allBlogposts.edges', []).map(
+  const tags = get(prismic, 'allBlogposts.edges', []).map(
     (edge) => edge.node.tag
   );
   tags.unshift('all');
