@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/styles";
 import { graphql } from "gatsby";
 import { portfolio } from "../contants/routes";
 import SEO from "../components/buildingBlocks/SEO";
+import HeroHeader from "../components/portfolio/HeroHeader";
 
 const useStyles = makeStyles({});
 const PortfolioPage = ({ data: { site } }) => {
@@ -15,6 +16,7 @@ const PortfolioPage = ({ data: { site } }) => {
         title={site.siteMetadata.portfolio.title}
         description={site.siteMetadata.description}
       />
+      <HeroHeader slogan={site.siteMetadata.portfolio.slogan} />
     </Layout>
   );
 };
