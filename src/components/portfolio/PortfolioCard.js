@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
 export default ({ post }) => {
   const classes = useStyles();
 
+  console.log(post);
   return (
     <div className={classes.container}>
       <Image sharp={post.thumbnailSharp} image={post.thumbnail} />
