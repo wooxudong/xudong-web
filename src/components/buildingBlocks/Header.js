@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default ({ title, linkTo }) => {
+export default ({ title, linkTo, isBlog = true }) => {
   const classes = useStyles();
   return (
     <header className={classes.header}>
@@ -64,7 +64,7 @@ export default ({ title, linkTo }) => {
         </Link>
       </div>
       <div>
-        <Navigation />
+        <Navigation isBlog={isBlog} />
       </div>
     </header>
   );

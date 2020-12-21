@@ -14,13 +14,13 @@ const useStyles = makeStyles({
     display: 'grid',
     gridTemplateColumns: '1fr',
     gridGap: '2rem',
-    marginTop: '2rem',
+    marginTop: '1rem',
     '@media screen and (min-width: 768px)': {
       gridTemplateColumns: '1fr 1fr',
     },
   },
   tags: {
-    padding: '2rem 0',
+    padding: '1.5rem 0.5rem',
     '& span': {
       fontSize: '1.5rem',
     },
@@ -54,7 +54,11 @@ const PortfolioPage = ({ data: { site, prismic } }) => {
   );
   tags.unshift('all');
   return (
-    <Layout title={site.siteMetadata.portfolio.title} to={portfolio}>
+    <Layout
+      title={site.siteMetadata.portfolio.title}
+      to={portfolio}
+      isBlog={false}
+    >
       <SEO
         title={site.siteMetadata.portfolio.title}
         description={site.siteMetadata.description}

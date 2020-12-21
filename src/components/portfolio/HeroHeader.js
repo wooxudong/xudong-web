@@ -4,7 +4,7 @@ import React from 'react';
 const useStyles = makeStyles((theme) => ({
   container: {
     position: 'relative',
-    padding: '0.5rem',
+    padding: '0.5rem 0 0.5rem 0.5rem',
     '&:before': {
       height: '90%',
       content: "''",
@@ -15,9 +15,10 @@ const useStyles = makeStyles((theme) => ({
   description: {
     fontSize: '2.5rem',
     fontWeight: '200',
-    padding: '0 1.5rem',
+    paddingLeft: '1.5rem',
     position: 'relative',
     fontFamily: 'Zhi Mang Xing, cursive',
+    textAlign: 'justify',
   },
 }));
 

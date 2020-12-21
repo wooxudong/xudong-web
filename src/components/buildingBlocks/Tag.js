@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
   portfolioTag: {
     border: '2px solid black',
     '&:hover': {
-      border: `2px solid ${theme.colors.darkGreen}`,
-      color: theme.colors.darkGreen,
+      border: `2px solid ${theme.colors.mainGreen}`,
+      color: theme.colors.mainGreen,
     },
   },
 }));

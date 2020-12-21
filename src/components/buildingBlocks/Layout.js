@@ -30,12 +30,12 @@ const useStyles = makeStyles({
   },
 });
 
-const Layout = ({ children, title, to }) => {
+const Layout = ({ children, title, to, isBlog = true }) => {
   const classes = useStyles();
   return (
     <div className={classes.container}>
       <ThemeProvider theme={defaultTheme}>
-        <Header title={title} linkTo={to} />
+        <Header title={title} linkTo={to} isBlog={isBlog} />
         {children}
         <Footer />
       </ThemeProvider>

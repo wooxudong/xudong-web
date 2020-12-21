@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'block',
     height: '1.5rem',
     width: '0',
+    '& svg path': {
+      fill: 'black',
+    },
     transition: 'width .5s ease-in-out',
     marginRight: '1rem',
     [theme.breakpoints.down('md')]: {
@@ -23,25 +26,38 @@ const useStyles = makeStyles((theme) => ({
     },
     position: 'relative',
     fontSize: theme.fonts.big,
-    borderRadius: '8px',
-    backgroundColor: theme.colors.mainGreen,
     width: '3rem',
     height: '2rem',
-    color: theme.colors.white,
     textDecoration: 'none',
     padding: '0.2rem 1rem',
+  },
+  blogButton: {
+    borderRadius: '8px',
+    backgroundColor: theme.colors.mainGreen,
+    color: theme.colors.white,
     '&:hover': {
       '& $backArrow': {
         width: '2rem',
       },
     },
   },
+  portfolioButton: {
+    border: `2px solid ${theme.colors.mainGreen}`,
+    color: theme.colors.mainGreen,
+    borderRadius: '2px',
+    '&:hover': {
+      color: theme.colors.white,
+      backgroundColor: theme.colors.mainGreen,
+    },
+  },
 }));
 
-const Navigation = () => {
+const Navigation = ({ isBlog = true }) => {
   const classes = useStyles();
+  const customStyle = isBlog ? classes.blogButton : classes.portfolioButton;
+
   return (
-    <Link className={classes.backToHome} to={'/'}>
+    <Link className={`${classes.backToHome} ${customStyle}`} to={'/'}>
       <img alt="back icon" src={BackArrow} className={classes.backArrow} />
       <span>BACK TO HOME</span>
     </Link>
