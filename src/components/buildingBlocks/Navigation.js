@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   portfolioButton: {
     border: `2px solid ${theme.colors.mainGreen}`,
     color: theme.colors.mainGreen,
-    borderRadius: '2px',
+    borderRadius: '0.4rem',
     '&:hover': {
       color: theme.colors.white,
       backgroundColor: theme.colors.mainGreen,

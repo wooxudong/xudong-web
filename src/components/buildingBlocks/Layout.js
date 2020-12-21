@@ -1,9 +1,10 @@
 import React from 'react';
 import { makeStyles, ThemeProvider } from '@material-ui/styles';
 import { mainGreen } from '../styles/colors';
-import Header from '../buildingBlocks/Header';
+import Header from './Header';
 import defaultTheme from '../styles/theme';
-import Footer from '../buildingBlocks/Footer';
+import Footer from './Footer';
+import HireMeButton from './HireMeButton';
 
 const useStyles = makeStyles({
   container: {
@@ -36,6 +37,7 @@ const Layout = ({ children, title, to, isBlog = true }) => {
     <div className={classes.container}>
       <ThemeProvider theme={defaultTheme}>
         <Header title={title} linkTo={to} isBlog={isBlog} />
+        <HireMeButton />
         {children}
         <Footer />
       </ThemeProvider>
