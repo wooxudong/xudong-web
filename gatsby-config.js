@@ -13,7 +13,7 @@ module.exports = {
       description: `All that is solid melts into air, all that is holy is profaned, and man is at last compelled to face with sober senses his real conditions of life, and his relations with his kind.`,
     },
     portfolio: {
-      title: 'My Portfolio',
+      title: 'The Kaleidoscope',
       slogan:
         '那些与时代太过于一致的人，那些在每一个方面都完美地附着于时代的人，不是当代的人；这恰恰是因为他们无法目睹时代；他们无法坚守自身对时代的凝视。',
     },
@@ -38,6 +38,13 @@ module.exports = {
             match: '/blog/:uid',
             component: require.resolve(
               './src/components/templates/blogTemplate.js'
+            ),
+          },
+          {
+            type: 'Portfolioitem',
+            match: '/portfolio/:uid',
+            component: require.resolve(
+              './src/components/templates/portfolioTemplate.js'
             ),
           },
         ],

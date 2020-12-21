@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import Image from '../buildingBlocks/Image';
+import { Link } from 'gatsby';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -25,17 +26,18 @@ const useStyles = makeStyles((theme) => ({
 export default ({ post }) => {
   const classes = useStyles();
 
-  console.log(post);
   return (
-    <div className={classes.container}>
-      <Image sharp={post.thumbnailSharp} image={post.thumbnail} />
-      <div>
-        <p>
-          {post.author} | {post.publish_date}
-        </p>
-        <h2 className={classes.title}>{post.title}</h2>
-        <p>{post.abstract}</p>
+    <Link to={`portfolio/${post._meta.uid}`}>
+      <div className={classes.container}>
+        <Image sharp={post.thumbnailSharp} image={post.thumbnail} />
+        <div>
+          <p>
+            {post.author} | {post.publish_date}
+          </p>
+          <h2 className={classes.title}>{post.title}</h2>
+          <p>{post.abstract}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
