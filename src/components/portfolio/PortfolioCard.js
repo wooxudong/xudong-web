@@ -4,11 +4,15 @@ import Image from '../buildingBlocks/Image';
 import { Link } from 'gatsby';
 
 const useStyles = makeStyles((theme) => ({
+  link: {
+    textDecoration: 'none',
+  },
   container: {
     display: 'grid',
     padding: '0.5rem',
-    gridTemplateRows: '4fr 2fr',
+    gridTemplateRows: 'auto 2fr',
     rowGap: 0,
+    color: theme.colors.black,
     overflow: 'hidden',
     '&:hover': {
       boxShadow: '0 0 30px #d5d5d5',
@@ -27,9 +31,13 @@ export default ({ post }) => {
   const classes = useStyles();
 
   return (
-    <Link to={`portfolio/${post._meta.uid}`}>
+    <Link to={`portfolio/${post._meta.uid}`} className={classes.link}>
       <div className={classes.container}>
-        <Image sharp={post.thumbnailSharp} image={post.thumbnail} />
+        <Image
+          sharp={post.thumbnailSharp}
+          image={post.thumbnail}
+          fitStyle='contain'
+        />
         <div>
           <p>
             {post.author} | {post.publish_date}

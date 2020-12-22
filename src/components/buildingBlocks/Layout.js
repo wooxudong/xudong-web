@@ -24,6 +24,9 @@ const useStyles = makeStyles({
       borderTop: `0.8rem solid ${mainGreen}`,
     },
   },
+  header: {
+    position: 'fixed',
+  },
   footer: {
     textAlign: 'center',
     margin: '5.5rem 0 1rem',
@@ -36,7 +39,12 @@ const Layout = ({ children, title, to, isBlog = true }) => {
   return (
     <div className={classes.container}>
       <ThemeProvider theme={defaultTheme}>
-        <Header title={title} linkTo={to} isBlog={isBlog} />
+        <Header
+          title={title}
+          linkTo={to}
+          isBlog={isBlog}
+          className={classes.header}
+        />
         <HireMeButton />
         {children}
         <Footer />

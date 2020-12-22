@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     fontFamily: 'Zhi Mang Xing, cursive',
     textAlign: 'justify',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1.5rem',
+      paddingLeft: '1rem',
+    },
   },
 }));
 

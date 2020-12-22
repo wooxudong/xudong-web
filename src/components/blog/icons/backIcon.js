@@ -4,8 +4,9 @@ import { Link } from 'gatsby';
 import { blog } from '../../../contants/routes';
 import withStyles from '@material-ui/styles/withStyles';
 import { mainGreen } from '../../styles/colors';
+import { makeStyles } from '@material-ui/styles';
 
-const styles = {
+const useStyles = makeStyles({
   backIcon: {
     display: 'flex',
     alignItem: 'center',
@@ -24,15 +25,18 @@ const styles = {
       display: 'inline-block',
     },
   },
+});
+
+const backIcon = ({ to = blog, textName = 'Back to all posts' }) => {
+  const classes = useStyles();
+  return (
+    <Link to={to} className={classes.backIcon}>
+      <img alt='back icon' src={BackArrow} />
+      <p>
+        <strong>{textName}</strong>
+      </p>
+    </Link>
+  );
 };
 
-const backIcon = ({ classes }) => (
-  <Link to={blog} className={classes.backIcon}>
-    <img alt="back icon" src={BackArrow} />
-    <p>
-      <strong>Back to all posts</strong>
-    </p>
-  </Link>
-);
-
-export default withStyles(styles)(backIcon);
+export default backIcon;

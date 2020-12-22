@@ -1,24 +1,30 @@
-import React from "react";
-import { makeStyles } from "@material-ui/styles";
-import { graphql, useStaticQuery } from "gatsby";
-import { get } from "loadsh";
-import Img from "gatsby-image";
+import React from 'react';
+import { makeStyles } from '@material-ui/styles';
+import { graphql, useStaticQuery } from 'gatsby';
+import { get } from 'loadsh';
+import Img from 'gatsby-image';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   avatar: {
-    borderRadius: "50%",
-    width: "5.5rem",
-    height: "5.5rem",
-    border: " solid 2px transparent",
-    transform: "translate(-1px, -1px)",
-    [theme.breakpoints.down("md")]: {
-      width: "4.75rem",
-      height: "4.75rem"
-    }
-  }
+    borderRadius: '50%',
+    border: ' solid 2px transparent',
+    transform: 'translate(-1px, -1px)',
+  },
+  default: {
+    width: '5.5rem',
+    height: '5.5rem',
+    [theme.breakpoints.down('md')]: {
+      width: '4.75rem',
+      height: '4.75rem',
+    },
+  },
+  small: {
+    width: '3rem',
+    height: '3rem',
+  },
 }));
 
-function ImageAvatars() {
+function ImageAvatars({ small = false }) {
   const data = useStaticQuery(graphql`
     query AvatarImageQuery {
       file(relativePath: { eq: "avatar.jpg" }) {
@@ -30,9 +36,10 @@ function ImageAvatars() {
       }
     }
   `);
-  const image = get(data, "file.childImageSharp.fluid", "");
+  const image = get(data, 'file.childImageSharp.fluid', '');
   const classes = useStyles();
-  return <Img fluid={image} className={classes.avatar} />;
+  const customStyle = small ? classes.small : classes.default;
+  return <Img fluid={image} className={`${classes.avatar} ${customStyle}`} />;
 }
 
 export default ImageAvatars;

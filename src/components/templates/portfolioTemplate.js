@@ -10,6 +10,8 @@ import BackIcon from '../blog/icons/backIcon';
 import BodySlice from './blogSlices/sliceZone';
 import { portfolio } from '../../contants/routes';
 import HireMeButton from '../buildingBlocks/HireMeButton';
+import Avatar from '../home/Avatar';
+import Pitch from '../portfolio/Pitch';
 
 const styles = {
   article: {
@@ -23,7 +25,6 @@ const styles = {
     },
   },
   title: {
-    textAlign: 'center',
     margin: '0 0 0.5rem',
     lineHeight: 1.3,
     fontSize: '2rem',
@@ -84,9 +85,11 @@ const blogTemplate = ({ data, classes }) => {
     >
       <SEO title={pageData.title} description={pageData.abstract} />
       <HireMeButton />
+      <Pitch />
       <article className={classes.article}>
         <div className={classes.titleContainer}>
           <h1 className={classes.title}>{pageData.title}</h1>
+          <Avatar />
           <div className={classes.meta}>By {pageData.author}</div>
           <div className={classes.meta}>{pageData.publish_date}</div>
         </div>
@@ -95,7 +98,7 @@ const blogTemplate = ({ data, classes }) => {
         </div>
       </article>
       <div className={classes.bottomGroup}>
-        <BackIcon />
+        <BackIcon to={portfolio} textName={'Back to all portfolios'} />
         <SocialMedia />
       </div>
     </Layout>

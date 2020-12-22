@@ -10,6 +10,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1rem',
     textAlign: 'center',
     textTransform: 'capitalize',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '0.8rem',
+      padding: '.3rem .7rem ',
+    },
     '&:hover': {
       cursor: 'pointer',
     },

@@ -21,9 +21,6 @@ const useStyles = makeStyles({
   },
   tags: {
     padding: '1.5rem 0.5rem',
-    '& span': {
-      fontSize: '1.5rem',
-    },
     '& > *': {
       marginRight: '.5rem',
       marginBottom: '.5rem',

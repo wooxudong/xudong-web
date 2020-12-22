@@ -15,7 +15,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '0.4rem',
     textTransform: 'uppercase',
     overflow: 'hidden',
-    display: (props) => (props.showScroll ? 'block' : 'none'),
+    display: 'none',
+    [theme.breakpoints.up('ll')]: {
+      display: (props) => (props.showScroll ? 'block' : 'none'),
+    },
     '&:hover': {
       '&:before': {
         animation: '$rotate 4s linear infinite',
