@@ -41,6 +41,17 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '.9rem',
     color: theme.colors.darkGreen,
   },
+  contactMe: {
+    textDecoration: 'none',
+    color: theme.colors.grey,
+    fontWeight: 'normal',
+    display: 'inline-block',
+    borderBottom: `2px solid ${theme.colors.mainGreen}`,
+    transition: 'transform .25s ease-in-out',
+    '&:hover': {
+      transform: 'translateY(-0.2rem)',
+    },
+  },
 }));
 
 export default () => {
@@ -61,8 +72,11 @@ export default () => {
         such as aerospace, financial services and consulting, now looking for
         opportunities to share my knowledge to help a company in need. And I
         always welcome challenges, enjoy solving complex and exciting problems,
-        and would love to be involved in any startups.
-        <Link to={'/contact'}>Contact me</Link>
+        and would love to be involved in any startups. Please{' '}
+        <Link to={'/contact'} className={classes.contactMe}>
+          contact me
+        </Link>{' '}
+        here for more information
       </div>
     </div>
   );
