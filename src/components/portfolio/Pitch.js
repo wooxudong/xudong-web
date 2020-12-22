@@ -1,7 +1,7 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import { makeStyles } from '@material-ui/styles';
 import Avatar from '../home/Avatar';
+import { Link } from 'gatsby';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -62,6 +62,7 @@ export default () => {
         opportunities to share my knowledge to help a company in need. And I
         always welcome challenges, enjoy solving complex and exciting problems,
         and would love to be involved in any startups.
+        <Link to={'/contact'}>Contact me</Link>
       </div>
     </div>
   );

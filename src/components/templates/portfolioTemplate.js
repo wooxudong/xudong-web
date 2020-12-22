@@ -10,12 +10,11 @@ import BackIcon from '../blog/icons/backIcon';
 import BodySlice from './blogSlices/sliceZone';
 import { portfolio } from '../../contants/routes';
 import HireMeButton from '../buildingBlocks/HireMeButton';
-import Avatar from '../home/Avatar';
 import Pitch from '../portfolio/Pitch';
+import { makeStyles } from '@material-ui/styles';
 
-const styles = {
+const useStyles = makeStyles((theme) => ({
   article: {
-    background: '#fff',
     lineHeight: '1.5',
   },
   content: {
@@ -32,9 +31,6 @@ const styles = {
     zIndex: 3,
   },
   meta: {
-    textAlign: 'center',
-    position: 'relative',
-    zIndex: 3,
     textTransform: 'uppercase',
   },
   authorTags: {
@@ -74,9 +70,10 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-};
-const blogTemplate = ({ data, classes }) => {
+}));
+const portfolioTemplate = ({ data }) => {
   const pageData = get(data, 'prismic.allPortfolioitems.edges.0.node', {});
+  const classes = useStyles();
   return (
     <Layout
       title={data.site.siteMetadata.portfolio.title}
@@ -85,14 +82,13 @@ const blogTemplate = ({ data, classes }) => {
     >
       <SEO title={pageData.title} description={pageData.abstract} />
       <HireMeButton />
-      <Pitch />
+      <Image sharp={pageData.thumbnailSharp} />
       <article className={classes.article}>
         <div className={classes.titleContainer}>
           <h1 className={classes.title}>{pageData.title}</h1>
-          <Avatar />
-          <div className={classes.meta}>By {pageData.author}</div>
           <div className={classes.meta}>{pageData.publish_date}</div>
         </div>
+        <Pitch />
         <div className={classes.content}>
           <BodySlice body={pageData.body} />
         </div>
@@ -105,7 +101,7 @@ const blogTemplate = ({ data, classes }) => {
   );
 };
 
-export default withStyles(styles)(blogTemplate);
+export default portfolioTemplate;
 
 export const pageQuery = graphql`
   query PortfolioDetailQuery($uid: String) {
