@@ -1,37 +1,53 @@
 import React from 'react';
-import { withStyles } from '@material-ui/styles';
-import { darkGreen, mainGreen } from '../styles/colors';
+import { makeStyles } from '@material-ui/styles';
 
-const styles = {
+const useStyles = makeStyles((theme) => ({
   button: {
     display: 'inline-block',
     minWidth: '8rem',
-    backgroundColor: mainGreen,
-    color: 'white',
-    borderRadius: '10% / 50%',
     padding: '.4rem 1rem',
     fontWeight: 700,
     fontSize: '1rem',
     textAlign: 'center',
     textTransform: 'capitalize',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '0.8rem',
+      padding: '.3rem .7rem ',
+    },
     '&:hover': {
-      backgroundColor: darkGreen,
       cursor: 'pointer',
     },
   },
-};
+  blogTag: {
+    backgroundColor: theme.colors.mainGreen,
+    color: 'white',
+    borderRadius: '10% / 50%',
+    '&:hover': {
+      backgroundColor: theme.colors.darkGreen,
+    },
+  },
+  portfolioTag: {
+    border: '2px solid black',
+    '&:hover': {
+      border: `2px solid ${theme.colors.mainGreen}`,
+      color: theme.colors.mainGreen,
+    },
+  },
+}));
 
-const Tag = ({ classes, text, action }) => {
+const Tag = ({ text, action, isBlog = true }) => {
+  const classes = useStyles();
   const handleClick = (event) => {
     const value = event.currentTarget.textContent;
     action(value);
   };
 
+  const additionStyle = isBlog ? classes.blogTag : classes.portfolioTag;
   return (
-    <div onClick={handleClick} className={classes.button}>
+    <div onClick={handleClick} className={`${classes.button} ${additionStyle}`}>
       {text}
     </div>
   );
 };
 
-export default withStyles(styles)(Tag);
+export default Tag;

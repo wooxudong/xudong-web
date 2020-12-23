@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import withStyles from '@material-ui/styles/withStyles';
-import { mainGreen } from '../styles/colors';
 import { blog } from '../../contants/routes';
 import Image from '../buildingBlocks/Image';
+import { makeStyles } from '@material-ui/styles';
 
-const styles = {
+const useStyles = makeStyles((theme) => ({
   card: {
     display: 'grid',
     backgroundColor: '#fff',
@@ -15,7 +14,7 @@ const styles = {
     overflow: 'hidden',
     lineHeight: '1.5',
     '&:hover': {
-      color: mainGreen,
+      color: theme.colors.mainGreen,
     },
     '& img': {
       display: 'block',
@@ -37,9 +36,10 @@ const styles = {
     color: 'inherit',
     textDecoration: 'none',
   },
-};
+}));
 
-const PostLink = ({ post, classes }) => {
+const PostLink = ({ post }) => {
+  const classes = useStyles();
   const postPath = `${blog}/${post._meta.uid}`;
   return (
     <article className={classes.card}>
@@ -59,4 +59,4 @@ const PostLink = ({ post, classes }) => {
     </article>
   );
 };
-export default withStyles(styles)(PostLink);
+export default PostLink;

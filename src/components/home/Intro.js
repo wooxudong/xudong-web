@@ -1,9 +1,8 @@
-import React from "react";
-import ContentPanel from "./shared/ContentPanel";
-import Timeline from "../buildingBlocks/Timeline";
+import React from 'react';
+import ContentPanel from './shared/ContentPanel';
+import Timeline from './Timeline';
 
-
-const intro = props => {
+const intro = (props) => {
   return (
     <ContentPanel id="intro" title="Intro" {...props}>
       <Timeline entries={props.timelineEvents} />

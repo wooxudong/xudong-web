@@ -3,16 +3,18 @@ import { graphql } from 'gatsby';
 import Layout from '../buildingBlocks/Layout';
 import get from 'loadsh/get';
 import SEO from '../buildingBlocks/SEO';
-import withStyles from '@material-ui/styles/withStyles';
 import Image from '../buildingBlocks/Image';
 import SocialMedia from '../blog/socialMedia';
 import BackIcon from '../blog/icons/backIcon';
 import BodySlice from './blogSlices/sliceZone';
-import { blog } from '../../contants/routes';
+import { portfolio } from '../../contants/routes';
+import HireMeButton from '../buildingBlocks/HireMeButton';
+import Pitch from '../portfolio/Pitch';
+import { makeStyles } from '@material-ui/styles';
+import formatDate from '../buildingBlocks/dateFormatter';
 
-const styles = {
+const useStyles = makeStyles({
   article: {
-    background: '#fff',
     lineHeight: '1.5',
   },
   content: {
@@ -22,49 +24,23 @@ const styles = {
     },
   },
   title: {
-    textAlign: 'center',
-    margin: '0 0 0.5rem',
     lineHeight: 1.3,
     fontSize: '2rem',
-    position: 'relative',
-    zIndex: 3,
+    textAlign: 'center',
+    textTransform: 'capitalize',
   },
   meta: {
+    fontStyle: 'italic',
     textAlign: 'center',
-    position: 'relative',
-    zIndex: 3,
-    textTransform: 'uppercase',
+    color: 'grey',
+  },
+  titleContainer: {
+    padding: '3rem 0 1.5rem 0',
   },
   authorTags: {
     paddingBottom: '1rem',
     borderBottom: '1px solid grey',
     margin: '2rem 0',
-  },
-  image: {
-    position: 'absolute !important',
-    width: '100%',
-    '&:before': {
-      position: 'absolute',
-      content: '""',
-      background: 'rgba(0,0,0,0.4)',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      zIndex: 2,
-    },
-  },
-  thumbnail: {
-    minHeight: '380px',
-    borderRadius: '18px',
-    marginBottom: '36px',
-    color: '#fff',
-    position: 'relative',
-    overflow: 'hidden',
-    display: 'flex',
-    alignContent: 'center',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
   },
   bottomGroup: {
     paddingTop: '5rem',
@@ -72,21 +48,25 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-};
-const blogTemplate = ({ data, classes }) => {
-  const pageData = get(data, 'prismic.allBlogposts.edges.0.node', {});
+});
+const portfolioTemplate = ({ data }) => {
+  const pageData = get(data, 'prismic.allPortfolioitems.edges.0.node', {});
+  const classes = useStyles();
   return (
-    <Layout title={data.site.siteMetadata.blog.title} to={blog}>
+    <Layout
+      title={data.site.siteMetadata.portfolio.title}
+      to={portfolio}
+      isBlog={false}
+    >
       <SEO title={pageData.title} description={pageData.abstract} />
+      <HireMeButton />
+      <Image sharp={pageData.thumbnailSharp} />
       <article className={classes.article}>
-        <div className={classes.thumbnail}>
-          <div className={classes.image}>
-            <Image sharp={pageData.thumbnailSharp} image={pageData.thumbnail} />
-          </div>
-          <div className={classes.titleContainer}>
-            <h1 className={classes.title}>{pageData.title}</h1>
-            <div className={classes.meta}>By {pageData.author}</div>
-            <div className={classes.meta}>{pageData.publish_date}</div>
+        <Pitch />
+        <div className={classes.titleContainer}>
+          <h1 className={classes.title}>{pageData.title}</h1>
+          <div className={classes.meta}>
+            {formatDate(pageData.publish_date)}
           </div>
         </div>
         <div className={classes.content}>
@@ -94,26 +74,26 @@ const blogTemplate = ({ data, classes }) => {
         </div>
       </article>
       <div className={classes.bottomGroup}>
-        <BackIcon />
+        <BackIcon to={portfolio} textName={'Back to all portfolios'} />
         <SocialMedia />
       </div>
     </Layout>
   );
 };
 
-export default withStyles(styles)(blogTemplate);
+export default portfolioTemplate;
 
 export const pageQuery = graphql`
-  query BlogDetailQuery($uid: String) {
+  query PortfolioDetailQuery($uid: String) {
     site {
       siteMetadata {
-        blog {
+        portfolio {
           title
         }
       }
     }
     prismic {
-      allBlogposts(uid: $uid) {
+      allPortfolioitems(uid: $uid) {
         edges {
           node {
             title
@@ -130,17 +110,17 @@ export const pageQuery = graphql`
               }
             }
             body {
-              ... on PRISMIC_BlogpostBodyRich_text {
+              ... on PRISMIC_PortfolioitemBodyTableau {
                 type
                 primary {
-                  paragraph
+                  link
                 }
               }
-              ... on PRISMIC_BlogpostBodyCode {
+              ... on PRISMIC_PortfolioitemBodyRich_text {
                 type
                 label
                 primary {
-                  code
+                  paragraph
                 }
               }
             }

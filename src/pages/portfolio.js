@@ -1,32 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { graphql } from 'gatsby';
 import Layout from '../components/buildingBlocks/Layout';
-import PostLink from '../components/blog/PostLink';
-import HeroHeader from '../components/blog/HeroHeader';
-import withStyles from '@material-ui/styles/withStyles';
+import { makeStyles } from '@material-ui/styles';
+import { graphql } from 'gatsby';
+import { portfolio } from '../contants/routes';
 import SEO from '../components/buildingBlocks/SEO';
-import Tag from '../components/buildingBlocks/Tag';
+import HeroHeader from '../components/portfolio/HeroHeader';
+import PortfolioCard from '../components/portfolio/PortfolioCard';
 import { get } from 'loadsh';
-import { blog } from '../contants/routes';
+import Tag from '../components/buildingBlocks/Tag';
 
-const styles = {
+const useStyles = makeStyles({
   grids: {
     display: 'grid',
     gridTemplateColumns: '1fr',
     gridGap: '2rem',
-    marginTop: '2rem',
+    marginTop: '1rem',
     '@media screen and (min-width: 768px)': {
       gridTemplateColumns: '1fr 1fr',
     },
-    '@media only screen and (min-width: 1024px)': {
-      gridTemplateColumns: '1fr 1fr 1fr',
-    },
   },
   tags: {
-    padding: '2rem 0',
-    '& span': {
-      fontSize: '1.5rem',
-    },
+    padding: '1.5rem 0.5rem',
     '& > *': {
       marginRight: '.5rem',
       marginBottom: '.5rem',
@@ -38,82 +32,86 @@ const styles = {
       },
     },
   },
-};
+});
+const PortfolioPage = ({ data: { site, prismic } }) => {
+  const classes = useStyles();
 
-const BlogPage = ({ data: { site, prismic }, classes }) => {
   const [posts, setPosts] = useState([]);
   const [tag, setTag] = useState('all');
 
   useEffect(() => {
-    const posts = get(prismic, 'allBlogposts.edges', [])
+    const posts = get(prismic, 'allPortfolioitems.edges', [])
       .filter((edge) => (tag === 'all' ? true : edge.node.tag === tag))
       .map((edge) => edge.node);
     setPosts(posts);
   }, [tag, prismic]);
 
-  const tags = get(prismic, 'allBlogposts.edges', []).map(
+  const tags = get(prismic, 'allPortfolioitems.edges', []).map(
     (edge) => edge.node.tag
   );
   tags.unshift('all');
-
   return (
-    <Layout title={site.siteMetadata.blog.title} to={blog}>
+    <Layout
+      title={site.siteMetadata.portfolio.title}
+      to={portfolio}
+      isBlog={false}
+    >
       <SEO
-        title={site.siteMetadata.blog.title}
+        title={site.siteMetadata.portfolio.title}
         description={site.siteMetadata.description}
       />
-      <HeroHeader
-        slogan={site.siteMetadata.blog.slogan}
-        description={site.siteMetadata.blog.description}
-      />
+      <HeroHeader slogan={site.siteMetadata.portfolio.slogan} />
       <div className={classes.tags}>
         <span>Tags:</span>
         {tags.map((tag) => (
-          <Tag text={tag} action={(value) => setTag(value)} key={tag} />
+          <Tag
+            text={tag}
+            action={(value) => setTag(value)}
+            key={tag}
+            isBlog={false}
+          />
         ))}
       </div>
-      <h2>Blog Posts &darr;</h2>
       <div className={classes.grids}>
         {posts.map((post) => (
-          <PostLink key={post._meta.uid} post={post} />
+          <PortfolioCard post={post} key={post._meta.uid} />
         ))}
       </div>
     </Layout>
   );
 };
 
-export default withStyles(styles)(BlogPage);
+export default PortfolioPage;
 export const pageQuery = graphql`
-  query indexPageQuery {
+  query portfolioPageQuery {
     site {
       siteMetadata {
         description
-        blog {
+        portfolio {
           title
           slogan
-          description
         }
       }
     }
     prismic {
-      allBlogposts(sortBy: publish_date_DESC) {
+      allPortfolioitems(sortBy: publish_date_DESC) {
         edges {
           node {
-            title
+            _meta {
+              uid
+            }
+            abstract
             author
-            tag
+            publish_date
             thumbnail
+            tag
+            title
             thumbnailSharp {
               childImageSharp {
-                fluid(maxWidth: 500, maxHeight: 270) {
+                fluid {
                   ...GatsbyImageSharpFluid_tracedSVG
                 }
               }
-            }
-            abstract
-            publish_date
-            _meta {
-              uid
             }
           }
         }
