@@ -12,7 +12,6 @@ import HireMeButton from '../buildingBlocks/HireMeButton';
 import Pitch from '../portfolio/Pitch';
 import { makeStyles } from '@material-ui/styles';
 import formatDate from '../buildingBlocks/dateFormatter';
-import TableauResume from '../templates/tableauTemplate';
 
 const useStyles = makeStyles({
   article: {
@@ -63,13 +62,13 @@ const portfolioTemplate = ({ data }) => {
       <HireMeButton />
       <Image sharp={pageData.thumbnailSharp} />
       <article className={classes.article}>
+        <Pitch />
         <div className={classes.titleContainer}>
           <h1 className={classes.title}>{pageData.title}</h1>
           <div className={classes.meta}>
             {formatDate(pageData.publish_date)}
           </div>
         </div>
-        <Pitch />
         <div className={classes.content}>
           <BodySlice body={pageData.body} />
         </div>
@@ -107,6 +106,21 @@ export const pageQuery = graphql`
               childImageSharp {
                 fluid(maxWidth: 1024) {
                   ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
+            }
+            body {
+              ... on PRISMIC_PortfolioitemBodyTableau {
+                type
+                primary {
+                  link
+                }
+              }
+              ... on PRISMIC_PortfolioitemBodyRich_text {
+                type
+                label
+                primary {
+                  paragraph
                 }
               }
             }

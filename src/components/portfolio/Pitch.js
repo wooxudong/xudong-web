@@ -5,8 +5,8 @@ import { Link } from 'gatsby';
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    padding: '1rem 0 1rem 0',
-    borderTop: `2px solid ${theme.colors.lightGrey}`,
+    marginTop: '2rem',
+    paddingBottom: '1rem',
     borderBottom: `2px solid ${theme.colors.lightGrey}`,
   },
   avatar: {
@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.1rem',
     textAlign: 'justify',
     color: theme.colors.grey,
+    fontStretch: 'semi-expanded',
   },
   personalInfo: {
     display: 'flex',

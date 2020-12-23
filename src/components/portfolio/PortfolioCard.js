@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.3rem',
   },
   info: {
-    marginTop: '1rem',
+    margin: '1rem 0',
   },
 }));
 
