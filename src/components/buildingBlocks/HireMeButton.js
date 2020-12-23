@@ -72,9 +72,14 @@ const HireMeButton = () => {
   window.addEventListener('scroll', checkScrollTop);
 
   return (
-    <Link to={'/contact'} className={classes.hireMe}>
+    <a
+      href='https://www.upwork.com/freelancers/~010dd7850a217ddc47?viewMode=1'
+      target='_blank'
+      rel='noopener noreferrer'
+      className={classes.hireMe}
+    >
       Hire Me
-    </Link>
+    </a>
   );
 };
 
