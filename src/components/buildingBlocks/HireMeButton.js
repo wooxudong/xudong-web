@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Link } from 'gatsby';
+import { isBrowser } from '../../utils/isBrowser';
 
 const useStyles = makeStyles((theme) => ({
   hireMe: {
@@ -62,14 +62,14 @@ const HireMeButton = () => {
   const classes = useStyles({ showScroll });
 
   const checkScrollTop = () => {
-    if (!showScroll && window.pageYOffset > 100) {
+    if (isBrowser() && !showScroll && window.pageYOffset > 100) {
       setShowScroll(true);
-    } else if (showScroll && window.pageYOffset <= 100) {
+    } else if (isBrowser() && showScroll && window.pageYOffset <= 100) {
       setShowScroll(false);
     }
   };
 
-  window.addEventListener('scroll', checkScrollTop);
+  isBrowser() && window.addEventListener('scroll', checkScrollTop);
 
   return (
     <a
