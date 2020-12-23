@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import Layout from '../buildingBlocks/Layout';
 import get from 'loadsh/get';
 import SEO from '../buildingBlocks/SEO';
-import withStyles from '@material-ui/styles/withStyles';
 import Image from '../buildingBlocks/Image';
 import SocialMedia from '../blog/socialMedia';
 import BackIcon from '../blog/icons/backIcon';
@@ -12,8 +11,10 @@ import { portfolio } from '../../contants/routes';
 import HireMeButton from '../buildingBlocks/HireMeButton';
 import Pitch from '../portfolio/Pitch';
 import { makeStyles } from '@material-ui/styles';
+import formatDate from '../buildingBlocks/dateFormatter';
+import TableauResume from '../templates/tableauTemplate';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   article: {
     lineHeight: '1.5',
   },
@@ -30,7 +31,9 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'capitalize',
   },
   meta: {
-    textTransform: 'uppercase',
+    fontStyle: 'italic',
+    textAlign: 'center',
+    color: 'grey',
   },
   titleContainer: {
     padding: '3rem 0 1.5rem 0',
@@ -46,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-}));
+});
 const portfolioTemplate = ({ data }) => {
   const pageData = get(data, 'prismic.allPortfolioitems.edges.0.node', {});
   const classes = useStyles();
@@ -62,7 +65,9 @@ const portfolioTemplate = ({ data }) => {
       <article className={classes.article}>
         <div className={classes.titleContainer}>
           <h1 className={classes.title}>{pageData.title}</h1>
-          <div className={classes.meta}>{pageData.publish_date}</div>
+          <div className={classes.meta}>
+            {formatDate(pageData.publish_date)}
+          </div>
         </div>
         <Pitch />
         <div className={classes.content}>

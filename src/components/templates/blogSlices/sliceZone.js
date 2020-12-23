@@ -1,7 +1,8 @@
 import React from 'react';
 import CodeSlice from './code';
 import ParagraphSlice from './paragraph';
-import { CODE, RICH_TEXT } from './sliceType';
+import { CODE, RICH_TEXT, TABLEAU } from './sliceType';
+import TableauResume from '../tableauTemplate';
 
 export default ({ body }) => {
   return (
@@ -15,6 +16,8 @@ export default ({ body }) => {
               return (
                 <ParagraphSlice paragraph={bodyContent.primary.paragraph} />
               );
+            case TABLEAU:
+              return <TableauResume url={bodyContent.primary.url} />;
             default:
               return null;
           }
