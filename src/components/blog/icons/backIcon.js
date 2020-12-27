@@ -2,7 +2,6 @@ import React from 'react';
 import BackArrow from '../../../../static/image/icons/back.svg';
 import { Link } from 'gatsby';
 import { blog } from '../../../contants/routes';
-import withStyles from '@material-ui/styles/withStyles';
 import { mainGreen } from '../../styles/colors';
 import { makeStyles } from '@material-ui/styles';
 
@@ -31,7 +30,7 @@ const backIcon = ({ to = blog, textName = 'Back to all posts' }) => {
   const classes = useStyles();
   return (
     <Link to={to} className={classes.backIcon}>
-      <img alt='back icon' src={BackArrow} />
+      <img alt="back icon" src={BackArrow} />
       <p>
         <strong>{textName}</strong>
       </p>
