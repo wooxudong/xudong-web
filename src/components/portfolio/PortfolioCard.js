@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import Image from '../buildingBlocks/Image';
 import { Link } from 'gatsby';
+import formatDate from '../buildingBlocks/dateFormatter';
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -32,7 +33,7 @@ export default ({ post }) => {
         <Image sharp={post.thumbnailSharp} image={post.thumbnail} />
         <div className={classes.info}>
           <span>
-            {post.author} | {post.publish_date}
+            {post.author} | {formatDate(post.publish_date)}
           </span>
           <h2 className={classes.title}>{post.title}</h2>
           <span>{post.abstract}</span>
