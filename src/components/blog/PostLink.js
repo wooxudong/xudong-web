@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import { blog } from '../../contants/routes';
 import Image from '../buildingBlocks/Image';
 import { makeStyles } from '@material-ui/styles';
+import formatDate from '../buildingBlocks/dateFormatter';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -54,7 +55,9 @@ const PostLink = ({ post }) => {
             {post.title}
           </Link>
         </h2>
-        <div className={classes.postMeta}>{post.publish_date}</div>
+        <div className={classes.postMeta}>
+          {post.author} | {formatDate(post.publish_date)}
+        </div>
       </header>
     </article>
   );

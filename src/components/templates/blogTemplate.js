@@ -9,6 +9,7 @@ import SocialMedia from '../blog/socialMedia';
 import BackIcon from '../blog/icons/backIcon';
 import BodySlice from './blogSlices/sliceZone';
 import { blog } from '../../contants/routes';
+import formatDate from '../buildingBlocks/dateFormatter';
 
 const styles = {
   article: {
@@ -86,7 +87,9 @@ const blogTemplate = ({ data, classes }) => {
           <div className={classes.titleContainer}>
             <h1 className={classes.title}>{pageData.title}</h1>
             <div className={classes.meta}>By {pageData.author}</div>
-            <div className={classes.meta}>{pageData.publish_date}</div>
+            <div className={classes.meta}>
+              {formatDate(pageData.publish_date)}
+            </div>
           </div>
         </div>
         <div className={classes.content}>
