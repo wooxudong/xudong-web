@@ -1,8 +1,10 @@
 import React from 'react';
 import CodeSlice from './code';
 import ParagraphSlice from './paragraph';
-import { CODE, RICH_TEXT, TABLEAU } from './sliceType';
+import { CODE, RICH_TEXT, TABLEAU, QUOTE, MEDIA } from './sliceType';
 import TableauReport from './tableauReport';
+import Quote from './quote';
+import Media from './media';
 
 export default ({ body }) => {
   return (
@@ -18,6 +20,10 @@ export default ({ body }) => {
               );
             case TABLEAU:
               return <TableauReport url={bodyContent.primary.link} />;
+            case QUOTE:
+              return <Quote quote={bodyContent.primary.quote} />;
+            case MEDIA:
+              return <Media {...bodyContent.primary} />;
             default:
               return null;
           }

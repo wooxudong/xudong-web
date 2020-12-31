@@ -77,7 +77,7 @@ export default () => {
         <Link to={'/contact'} className={classes.contactMe}>
           contact me
         </Link>{' '}
-        here for more information
+        here for more information.
       </div>
     </div>
   );

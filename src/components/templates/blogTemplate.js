@@ -10,6 +10,7 @@ import BackIcon from '../blog/icons/backIcon';
 import BodySlice from './blogSlices/sliceZone';
 import { blog } from '../../contants/routes';
 import formatDate from '../buildingBlocks/dateFormatter';
+import Pitch from '../portfolio/Pitch';
 
 const styles = {
   article: {
@@ -92,6 +93,7 @@ const blogTemplate = ({ data, classes }) => {
             </div>
           </div>
         </div>
+        <Pitch />
         <div className={classes.content}>
           <BodySlice body={pageData.body} />
         </div>
@@ -122,7 +124,9 @@ export const pageQuery = graphql`
             title
             author
             publish_date
-            tag
+            tags {
+              tag
+            }
             abstract
             thumbnail
             thumbnailSharp {
@@ -144,6 +148,25 @@ export const pageQuery = graphql`
                 label
                 primary {
                   code
+                }
+              }
+              ... on PRISMIC_BlogpostBodyQuote {
+                type
+                primary {
+                  quote
+                }
+              }
+              ... on PRISMIC_BlogpostBodyMedia {
+                type
+                primary {
+                  artist
+                  link {
+                    ... on PRISMIC__ExternalLink {
+                      url
+                    }
+                  }
+                  title1
+                  review
                 }
               }
             }

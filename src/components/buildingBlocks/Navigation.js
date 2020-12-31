@@ -10,9 +10,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'block',
     height: '1.5rem',
     width: '0',
-    '& svg path': {
-      fill: 'black',
-    },
     transition: 'width .5s ease-in-out',
     marginRight: '1rem',
     [theme.breakpoints.down('md')]: {
@@ -58,7 +55,7 @@ const Navigation = ({ isBlog = true }) => {
 
   return (
     <Link className={`${classes.backToHome} ${customStyle}`} to={'/'}>
-      <img alt="back icon" src={BackArrow} className={classes.backArrow} />
+      <img alt='back icon' src={BackArrow} className={classes.backArrow} />
       <span>BACK TO HOME</span>
     </Link>
   );
