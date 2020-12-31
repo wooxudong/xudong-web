@@ -6,7 +6,7 @@ import HeroHeader from '../components/blog/HeroHeader';
 import withStyles from '@material-ui/styles/withStyles';
 import SEO from '../components/buildingBlocks/SEO';
 import Tag from '../components/buildingBlocks/Tag';
-import { get } from 'loadsh';
+import _ from 'loadsh';
 import { blog } from '../contants/routes';
 
 const styles = {
@@ -45,14 +45,20 @@ const BlogPage = ({ data: { site, prismic }, classes }) => {
   const [tag, setTag] = useState('all');
 
   useEffect(() => {
-    const posts = get(prismic, 'allBlogposts.edges', [])
-      .filter((edge) => (tag === 'all' ? true : edge.node.tag === tag))
+    const posts = _.get(prismic, 'allBlogposts.edges', [])
+      .filter((edge) => {
+        if (tag === 'all') return true;
+        const currentPostTags = _.map(edge.node.tags, 'tag');
+        return currentPostTags.includes(tag);
+      })
       .map((edge) => edge.node);
     setPosts(posts);
   }, [tag, prismic]);
 
-  const tags = get(prismic, 'allBlogposts.edges', []).map(
-    (edge) => edge.node.tag
+  const tags = _.uniq(
+    _.get(prismic, 'allBlogposts.edges', []).flatMap((edge) =>
+      _.map(edge.node.tags, 'tag')
+    )
   );
   tags.unshift('all');
 
@@ -101,7 +107,9 @@ export const pageQuery = graphql`
           node {
             title
             author
-            tag
+            tags {
+              tag
+            }
             thumbnail
             thumbnailSharp {
               childImageSharp {
