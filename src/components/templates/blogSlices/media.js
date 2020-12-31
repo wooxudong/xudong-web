@@ -5,7 +5,7 @@ import forwardArrow from '../../../../static/image/icons/forward-arrow.svg';
 
 const useStyles = makeStyles({
   title: {
-    fontSize: '2rem',
+    fontSize: '1.5rem',
   },
   artist: {
     fontSize: '1.2rem',
@@ -53,7 +53,7 @@ const useStyles = makeStyles({
         marginBottom: '1rem',
       },
       '& $review': {
-        paddingLeft: '.5rem',
+        paddingLeft: '.7rem',
       },
     },
     '&:hover': {
