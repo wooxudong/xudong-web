@@ -4,6 +4,7 @@ import ParagraphSlice from './paragraph';
 import { CODE, RICH_TEXT, TABLEAU, QUOTE, MEDIA } from './sliceType';
 import TableauReport from './tableauReport';
 import Quote from './quote';
+import Media from './media';
 
 export default ({ body }) => {
   return (
@@ -22,7 +23,7 @@ export default ({ body }) => {
             case QUOTE:
               return <Quote quote={bodyContent.primary.quote} />;
             case MEDIA:
-              return <div>{bodyContent.primary.artist}</div>;
+              return <Media {...bodyContent.primary} />;
             default:
               return null;
           }

@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { darkGreen, lightGrey } from '../../styles/colors';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   container: {
     margin: '0.5rem 0',
     borderLeft: `6px solid ${darkGreen}`,
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     fontStyle: 'italic',
     background: lightGrey,
   },
-}));
+});
 
 export default ({ quote }) => {
   const classes = useStyles();
