@@ -150,6 +150,25 @@ export const pageQuery = graphql`
                   code
                 }
               }
+              ... on PRISMIC_BlogpostBodyQuote {
+                type
+                primary {
+                  quote
+                }
+              }
+              ... on PRISMIC_BlogpostBodyMedia {
+                type
+                primary {
+                  artist
+                  link {
+                    ... on PRISMIC__ExternalLink {
+                      url
+                    }
+                  }
+                  title1
+                  review
+                }
+              }
             }
           }
         }
