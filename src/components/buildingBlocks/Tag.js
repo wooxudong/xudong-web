@@ -33,16 +33,28 @@ const useStyles = makeStyles((theme) => ({
       color: theme.colors.mainGreen,
     },
   },
+  activePortfolioTag: {
+    border: `2px solid ${theme.colors.mainGreen}`,
+    color: theme.colors.mainGreen,
+  },
+  activeBlogTag: {
+    backgroundColor: theme.colors.darkGreen,
+  },
 }));
 
-const Tag = ({ text, action, isBlog = true }) => {
+const Tag = ({ text, action, isBlog = true, active = false }) => {
   const classes = useStyles();
   const handleClick = (event) => {
     const value = event.currentTarget.textContent;
     action(value);
   };
-
-  const additionStyle = isBlog ? classes.blogTag : classes.portfolioTag;
+  let additionStyle = isBlog ? classes.blogTag : classes.portfolioTag;
+  if (active) {
+    const activeStyle = isBlog
+      ? classes.activeBlogTag
+      : classes.activePortfolioTag;
+    additionStyle = `${additionStyle} ${activeStyle}`;
+  }
   return (
     <div onClick={handleClick} className={`${classes.button} ${additionStyle}`}>
       {text}

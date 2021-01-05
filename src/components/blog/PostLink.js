@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: '1.5',
     '&:hover': {
       color: theme.colors.mainGreen,
+      '& $postMeta': {
+        color: theme.colors.black,
+      },
     },
     '& img': {
       display: 'block',
@@ -29,9 +32,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '0.3rem',
   },
   postMeta: {
-    fontWeight: 100,
+    fontWeight: 300,
     marginBottom: 0,
     fontSize: '0.8rem',
+    color: theme.colors.darkGreen,
   },
   postLink: {
     color: 'inherit',
