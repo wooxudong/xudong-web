@@ -74,8 +74,13 @@ const BlogPage = ({ data: { site, prismic }, classes }) => {
       />
       <div className={classes.tags}>
         <span>Tags:</span>
-        {tags.map((tag) => (
-          <Tag text={tag} action={(value) => setTag(value)} key={tag} />
+        {tags.map((tagText) => (
+          <Tag
+            text={tagText}
+            action={(value) => setTag(value)}
+            key={tagText}
+            active={tagText === tag}
+          />
         ))}
       </div>
       <h2>Blog Posts &darr;</h2>

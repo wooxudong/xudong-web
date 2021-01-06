@@ -63,12 +63,13 @@ const PortfolioPage = ({ data: { site, prismic } }) => {
       <HeroHeader slogan={site.siteMetadata.portfolio.slogan} />
       <div className={classes.tags}>
         <span>Tags:</span>
-        {tags.map((tag) => (
+        {tags.map((tagText) => (
           <Tag
-            text={tag}
+            text={tagText}
             action={(value) => setTag(value)}
-            key={tag}
+            key={tagText}
             isBlog={false}
+            active={tagText === tag}
           />
         ))}
       </div>
