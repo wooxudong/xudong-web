@@ -154,6 +154,7 @@ export const pageQuery = graphql`
                 type
                 primary {
                   quote
+                  type
                 }
               }
               ... on PRISMIC_BlogpostBodyMedia {

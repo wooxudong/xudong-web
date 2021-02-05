@@ -21,7 +21,12 @@ export default ({ body }) => {
             case TABLEAU:
               return <TableauReport url={bodyContent.primary.link} />;
             case QUOTE:
-              return <Quote quote={bodyContent.primary.quote} />;
+              return (
+                <Quote
+                  quote={bodyContent.primary.quote}
+                  type={bodyContent.primary.type}
+                />
+              );
             case MEDIA:
               return <Media {...bodyContent.primary} />;
             default:
