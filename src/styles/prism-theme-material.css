@@ -1,5 +1,5 @@
-code[class*="language-"],
-pre[class*="language-"] {
+code[class*='language-'],
+pre[class*='language-'] {
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -22,73 +22,77 @@ pre[class*="language-"] {
   -webkit-overflow-scrolling: touch;
 }
 
-pre[class*="language-"]::before {
-    background: black;
-    border-radius: 0 0 0.25rem 0.25rem;
-    color: white;
-    font-size: 12px;
-    letter-spacing: 0.025rem;
-    padding: 0.1rem 0.5rem;
-    position: absolute;
-    left: 1rem;
-    text-align: right;
-    text-transform: uppercase;
-    top: 0;
+pre[class*='language-']::before {
+  background: black;
+  border-radius: 0 0 0.25rem 0.25rem;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 0.025rem;
+  padding: 0.1rem 0.5rem;
+  position: absolute;
+  left: 1rem;
+  text-align: right;
+  text-transform: uppercase;
+  top: 0;
 }
 
-pre[class*="language-javascript"]::before {
-  content: "js";
+pre[class*='language-javascript']::before {
+  content: 'js';
   background: #f7df1e;
   color: black;
 }
 
-pre[class*="language-js"]::before {
-  content: "js";
+pre[class*='language-js']::before {
+  content: 'js';
   background: #f7df1e;
   color: black;
 }
 
-pre[class*="language-json"]::before {
-  content: "json";
+pre[class*='language-json']::before {
+  content: 'json';
   background: #f7df1e;
   color: black;
 }
 
-pre[class*="language-html"]::before {
-  content: "html";
+pre[class*='language-html']::before {
+  content: 'html';
   background: #005a9c;
   color: white;
 }
 
-pre[class*="language-css"]::before {
-  content: "css";
+pre[class*='language-css']::before {
+  content: 'css';
   background: #ff9800;
   color: white;
 }
 
+pre[class*='language-java']::before {
+  content: 'java';
+  background: #5382a1;
+  color: white;
+}
 
-
-code[class*="language-"]::-moz-selection,
-pre[class*="language-"]::-moz-selection,
-code[class*="language-"] ::-moz-selection,
-pre[class*="language-"] ::-moz-selection {
+code[class*='language-']::-moz-selection,
+pre[class*='language-']::-moz-selection,
+code[class*='language-'] ::-moz-selection,
+pre[class*='language-'] ::-moz-selection {
   background: #363636;
 }
 
-code[class*="language-"]::selection,
-pre[class*="language-"]::selection,
-code[class*="language-"] ::selection,
-pre[class*="language-"] ::selection {
+code[class*='language-']::selection,
+pre[class*='language-']::selection,
+code[class*='language-'] ::selection,
+pre[class*='language-'] ::selection {
   background: #363636;
 }
 
-:not(pre) > code[class*="language-"] {
+:not(pre) > code[class*='language-'] {
   white-space: normal;
   border-radius: 0.2em;
   padding: 0.1em;
 }
 
-pre[class*="language-"] {
+pre[class*='language-'] {
   overflow: auto;
   position: relative;
   margin: 0.5em 0;
@@ -101,7 +105,7 @@ pre[class*="language-"] {
   color: #fd9170;
 }
 
-[class*="language-"] .namespace {
+[class*='language-'] .namespace {
   opacity: 0.7;
 }
 
