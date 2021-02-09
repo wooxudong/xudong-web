@@ -5,7 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     homeTitle: `Xudong's Homepage`,
-    description: `wooxudong's personal website. I write blogs regarding film, tech and all random stuff.`,
+    description: `Xudong's personal website. I write blogs regarding film, tech and all other random stuff.`,
     siteUrl: `https://www.wooxudong.com`,
     blog: {
       title: `The Neverland`,
