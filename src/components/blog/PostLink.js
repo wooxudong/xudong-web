@@ -41,11 +41,27 @@ const useStyles = makeStyles((theme) => ({
     color: 'inherit',
     textDecoration: 'none',
   },
+  postTag: {
+    fontSize: '0.6rem',
+    fontWeight: 300,
+    color: theme.colors.white,
+    marginRight: '0.6rem',
+    textTransform: 'capitalize',
+    padding: '0.2rem 0.4rem',
+    backgroundColor: theme.colors.mainGreen,
+    borderRadius: '0.3rem',
+  },
+  tags: {
+    '& $postTag:last-child': {
+      marginRight: 0,
+    },
+  },
 }));
 
 const PostLink = ({ post }) => {
   const classes = useStyles();
   const postPath = `${blog}/${post._meta.uid}`;
+  console.log(post);
   return (
     <article className={classes.card}>
       <Link to={postPath}>
@@ -61,6 +77,13 @@ const PostLink = ({ post }) => {
         </h2>
         <div className={classes.postMeta}>
           {post.author} | {formatDate(post.publish_date)}
+        </div>
+        <div className={classes.tags}>
+          {post.tags.map(({ tag }) => (
+            <span key={tag} className={classes.postTag}>
+              #{tag}
+            </span>
+          ))}
         </div>
       </header>
     </article>
