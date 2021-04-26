@@ -63,7 +63,7 @@ const HireMeButton = () => {
 
   const checkScrollTop = () => {
     if (isBrowser() && !showScroll && window.pageYOffset > 100) {
-      setShowScroll(true);
+      setShowScroll(false);
     } else if (isBrowser() && showScroll && window.pageYOffset <= 100) {
       setShowScroll(false);
     }
