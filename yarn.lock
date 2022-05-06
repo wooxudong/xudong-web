@@ -13126,9 +13126,9 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-"tableau-api@git://github.com/ilyabo/tableau-api":
+"tableau-api@github:ilyabo/tableau-api":
   version "2.0.0"
-  resolved "git://github.com/ilyabo/tableau-api#069f178bd634f77ae14e44fd32cf3fa8258f1866"
+  resolved "https://codeload.github.com/ilyabo/tableau-api/tar.gz/069f178bd634f77ae14e44fd32cf3fa8258f1866"
 
 tableau-react-embed@^1.1.0:
   version "1.1.0"
@@ -13138,7 +13138,7 @@ tableau-react-embed@^1.1.0:
     es6-promise "^4.0.5"
     prop-types "^15.6.0"
     shallowequal "^0.2.2"
-    tableau-api "git://github.com/ilyabo/tableau-api"
+    tableau-api "github:ilyabo/tableau-api"
     url "^0.11.0"
 
 tapable@^1.0.0, tapable@^1.1.3:

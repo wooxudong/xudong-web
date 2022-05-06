@@ -37,7 +37,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/W3Layouts/Delog.git"
+    "url": "git@github.com:wooxudong/xudong-web.git"
   },
   "scripts": {
     "build": "gatsby build",
