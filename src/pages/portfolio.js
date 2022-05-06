@@ -6,7 +6,7 @@ import { portfolio } from '../contants/routes';
 import SEO from '../components/buildingBlocks/SEO';
 import HeroHeader from '../components/portfolio/HeroHeader';
 import PortfolioCard from '../components/portfolio/PortfolioCard';
-import { get } from 'loadsh';
+import { get, uniq } from 'loadsh';
 import Tag from '../components/buildingBlocks/Tag';
 
 const useStyles = makeStyles({
@@ -46,9 +46,9 @@ const PortfolioPage = ({ data: { site, prismic } }) => {
     setPosts(posts);
   }, [tag, prismic]);
 
-  const tags = get(prismic, 'allPortfolioitems.edges', []).map(
+  const tags = uniq(get(prismic, 'allPortfolioitems.edges', []).map(
     (edge) => edge.node.tag
-  );
+  ));
   tags.unshift('all');
   return (
     <Layout

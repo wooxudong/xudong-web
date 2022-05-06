@@ -56,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 const HireMeButton = () => {
   const [showScroll, setShowScroll] = useState(false);
 
@@ -63,7 +64,7 @@ const HireMeButton = () => {
 
   const checkScrollTop = () => {
     if (isBrowser() && !showScroll && window.pageYOffset > 100) {
-      setShowScroll(false);
+      setShowScroll(true);
     } else if (isBrowser() && showScroll && window.pageYOffset <= 100) {
       setShowScroll(false);
     }
